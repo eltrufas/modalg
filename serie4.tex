@@ -1,0 +1,134 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\newcounter{problem}
+\newcounter{solution}
+
+\newcommand\Problem[1]{%
+  \stepcounter{problem}%
+  \textbf{#1.}~%
+  \setcounter{solution}{0}%
+}
+
+\newcommand\TheSolution{%
+  \textbf{Solución:}\\%
+}
+
+\newcommand\ASolution{%
+  \stepcounter{solution}%
+  \textbf{Solución \thesolution:}\\%
+}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{1em}
+
+\title{Cuarta serie de ejercicios de Álgebra Moderna}
+\date{Mayo 2018}
+\author{Akiyuki Shinbou}
+\begin{document}
+
+\maketitle
+
+
+\Problem{1} Encuentre el orden de las siguientes permutaciones. \begin{enumerate}[a.]
+  \item $(14)$
+  \item $(147)$
+  \item $(14762)$
+  \item $(a_{1}a_{2}\ndots a_k)$
+\end{enumerate}
+
+\TheSolution{} \begin{enumerate}[a.]
+  \item $2$
+  \item $3$
+  \item $5$
+  \item $k$
+\end{enumerate}
+
+\Problem{8} ¿Cual es el orden maximo de cualquier elemento en $A_{10}$?
+
+\TheSolution{} Podemos escribir cada elemento de $A_{10}$ como un producto de
+ciclos disjuntos, y el orden del elemento es el producto de esos ciclos.
+Encontramos que el orden mayor que podemos obtener multiplicando estos ciclos
+y seguir teniendo una permutación par es un par de permutaciones de ordenes 7
+y 3, con orden 21, por ejemplo $(1234567)(89 10)$
+
+\Problem{15} Sea $\alpha$ y $\beta$ en $S_n$. Demuestra que $\alpha\beta$ es
+par si y solo si $\alpha$ y $\beta$ son ambos pares o ambo impares.
+
+\TheSolution{} Podemos expresar $\alpha$ como un producto de $n$ 2-ciclos, y
+$\beta$ un producto de $m$ 2-ciclos. Así, $\alpha\beta$ es un producto de
+$m + n$ 2-ciclos, y $m + n$ solo es par si $m$ y $n$ son ambos pares o
+impares.
+
+\Problem{22} Sea $\alpha$ y $\beta$ en $S_n$. Demuestra que $\alpha^{-1}\beta
+^{-1}\alpha\beta$ es una permutación par.
+
+\TheSolution{} Podemos expresar $\alpha$ como un producto de $n$ 2-ciclos, y
+$\beta$ un producto de $m$ 2-ciclos. Así, $\\alpha^{-1}\beta^{-1}alpha\beta$
+es un producto de$m + n + m + n = 2(m + n)$, un numero par.
+
+\Problem{29} Encuentra tres elementos $\sigma$ en $S_9$ con la propiedad de
+que $\sigma^3 = (157)(283)(469)$
+
+\TheSolution{} Observamos que al elevar el 9-ciclo $(a_1 a_2 a_3 a_4 a_5_ a_6
+a_7 a_8 a_9)$ al cubo obtenemos $(a_1 a_4 a_7)(a_2 a_5 a_8)(a_3 a_6 a_9)$.
+Observando que $(157)(283)(469) = (157)(469)(283) = (283)(157)(469)$, llegamos
+a los 9 ciclos $(124586739)$, $(142568793)$ y $(214856379)$.
+
+\Problem{36} En $S_4$, encuentra un subgrupo ciclico de orden 4 y un subgrupo
+no ciclico de orden 4.
+
+\TheSolution{} $(1234)$ es un ciclo de orden cuatro, $\langle(1234)\rangle$ es
+un subgrupo ciclico de orden 4. Un subgrupo no ciclico seria un conjunto con
+solo permutaciones disjuntas, por ejemplo $\{ (1), (12), (34), (12)(34)\}$.
+
+\Problem{43} Demuestra que $A_5$ tiene 24 elementos de orden 5, 20 elementos
+de orden 3 y 15 elementos de orden 2.
+
+\TheSolution{} Podemos descomponer todos los elementos de $A_5$ en 5-ciclos,
+3-ciclos, o un producto de 2-ciclos disjuntos. Para los elementos de orden 5,
+hay $5! / 5 = 24$ ciclos de la forma $(abcde)$. Hay $(5 * 4 * 3) / 3 = 20$
+elementos de la forma $(abc)$. Para el caso de los elementos de orden 2,
+encontramos los elementos de la forma $(ab)(cd)$, que son $(5 * 4 * 3 * 2)/8
+= 15$, donde dividimos entre 8 porque existen 8 formas de escribir el mismo
+par de 2-ciclos.
+
+\Problem{50} Utiliza el esquema de verificación de digitos de Verhoeff basado
+en $D_5$ para agregar un digito de verificación a 45723. 
+
+\TheSolution{} $\sigma(4) * \sigma^{2}(5) * \sigma^{3}(7) * \sigma^{4}(2) *
+\sigma^{4}(3) = 2 * 9 * 5 * 5 * 3 = 5$. Necesitamos agregar el digito 5 para
+que la suma se vuelva 0.
+
+\Problem{57} ¿Por qué el hecho de que ordenes de los elementos de $A_4$ sean
+1, 2 y 3 implica que $|Z(A_4)| = 1$?
+
+
+
+\end{document}
+

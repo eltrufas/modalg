@@ -1,0 +1,389 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\newcounter{problem}
+\newcounter{solution}
+
+\newcommand\Problem[1]{%
+  \stepcounter{problem}%
+  \textbf{#1.}~%
+  \setcounter{solution}{0}%
+}
+
+\newcommand\TheSolution{%
+  \textbf{Solución:}\\%
+}
+
+\newcommand\ASolution{%
+  \stepcounter{solution}%
+  \textbf{Solución \thesolution:}\\%
+}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{1em}
+
+\title{Segunda serie de ejercicios de Álgebra Moderna}
+\author{Akiyuki Shinbou}
+\date{Mayo 2018}
+
+\begin{document}
+
+\maketitle
+
+\Problem{1} Da dos razones de porque el conjunto de numeros impares bajo la
+suma no es un grupo
+
+\TheSolution{} La suma de dos numeros impares no es otro numero impar y la
+identidad $0$ no estáen el conjunto.
+
+\Problem{2} Verifica la aserción de que la resta no es asociativa.
+
+\TheSolution{} $(5 - 4) - 3 = -2$ pero $5 - (4 - 3) = 4$.
+
+\Problem{3} Demuestra que $\{1, 2, 3\}$ bajo multiplicación modulo 4 no es un
+grupo pero que $\{1, 2, 3, 4\}$ bajo la multiplicación modulo 5 es un grupo.
+
+\TheSolution{} 2 no tiene un inverso bajo la multiplicación modulo 4. Bajo la
+multiplicación modulo 5, $\{1, 2, 3, 4\}$ es cerrado, tiene 1 como la
+identidad y todos los elementos tienen inversos: 1 y 4 son su propio inverso,
+3 es inverso del 2 y 2 es el inverso del 3.
+
+\Problem{4} Demuestra que $GL(2, R)$ es no abeliana encontrando un ejemplo de
+dos matrices $A$ y $B$ en $GL(2, R)$ tal que $AB \neq BA$.
+
+\TheSolution{} Ejemplo:
+\[
+\begin{bmatrix}
+    1  &  0      \\
+    1  &  1
+\end{bmatrix}
+\begin{bmatrix}
+    1  &  1      \\
+    0  &  1
+\end{bmatrix}
+\neq
+\begin{bmatrix}
+    1  &  1      \\
+    0  &  1
+\end{bmatrix}
+\begin{bmatrix}
+    1  &  0      \\
+    1  &  1
+\end{bmatrix}
+\]
+
+\Problem{5} Encuentra el elemento inverso al elemento $\begin{bmatrix}2&6\\3&5
+\end{bmatrix}$ en $GL(2, Z_{11})$.
+
+
+\TheSolution{} Obtenemos el determinante
+\[
+\det
+\begin{bmatrix}
+    2  &  6      \\
+    3  &  5
+\end{bmatrix}
+= -8 \mod 11 = 3
+\]
+
+El inverso por lo tanto es
+
+\[
+\begin{bmatrix}
+    5 \cdot 4  &  -6 \cdot 4      \\
+    -3 \cdot 4  & 2  \cdot 4
+\end{bmatrix}
+=
+\begin{bmatrix}
+    9  &  9      \\
+    10  &  8
+\end{bmatrix}
+\]
+
+\Problem{6} Da un ejemplo de elementos de grupo $a$ y $b$ con la propiedad
+que $a^{-1}ba \neq b$.
+
+\TheSolution{} En $D_4$, $R_{90}VR_{270} = H$
+
+\Problem{7} Traduce cada una de las expresiones multiplicativas en sus
+contrapartes aditivas. Asume que la operación es conmutativa.
+
+\begin{enumerate}[a.]%for small alpha-characters within brackets.
+\item $a^2b^3$
+\item $a^{-2}{(b^{-1}c)}^2$
+\item ${(ab^2)}^{-3}c^2 = e$
+\end{enumerate}
+
+\TheSolution{}\begin{enumerate}[a.]
+\item $2a + 3b$
+\item $2{(c - b)} - 2a$
+\item $2c - 3{a + 2b} = 0$
+\end{enumerate}
+
+\Problem{8} Demuestra que el conjunto $\{5, 15, 25, 35\}$ es un grupo bajo la
+multiplicación modulo 40. ¿Cual es la identidad de este grupo? ¿Puedes ver
+alguna relación entre este grupo e $U(8)$?
+
+\TheSolution{}
+La identidad del grupo es 25. El siguiente codigo de Python revisa todas las
+propiedades por exhaustión.
+
+\begin{lstlisting}
+>>> G = [5, 15, 25, 35]
+>>> all((x * y) % 40 in G for x in G for y in G) # Cerradura
+True
+>>> all((x * 25) % 40 == x for x in G) # Identidad
+True
+>>> all(any((x * y) % 40 == 25 for y in G) for x in G) # Existencia de la inversa
+True
+\end{lstlisting}
+
+\Problem{10} Lista los miembros de $H = \{x^2 | x \in D_4$ y
+$ K = \{x \in D_4 | x^2 = e \}$.
+
+\TheSolution{}
+El siguiente programa de Python enumera los dos conjuntos.
+
+\begin{lstlisting}
+tags = {(0, 1, 2, 3): 'R0',
+        (1, 2, 3, 0): 'R90',
+        (2, 3, 0, 1): 'R180',
+        (3, 0, 1, 2): 'R270',
+        (3, 2, 1, 0): 'V',
+        (1, 0, 3, 2): 'H',
+        (0, 3, 2, 1): 'D',
+        (2, 1, 0, 3): "D'"}
+
+D4 = tags.keys()
+
+
+def compose(a, b):
+    return tuple(a[i] for i in b)
+
+
+H = {tags[compose(p, p)] for p in D4}
+K = {tags[p] for p in D4 if tags[compose(p, p)] == 'R0'}
+
+print("H =", H) # H = {'R180', 'R0'}
+print("K =", K) # K =  {'H', 'V', 'R0', 'R180', 'D', "D'"}
+\end{lstlisting}
+
+\Problem{11} Demuestra que el conjunto de todas las matrices $2 \times 2$ con
+entradas de R y determinante 1 son un grupo bajo el producto matricial.
+
+\TheSolution{}
+Por la propiedad de $\det {(AB)} = \det A \det B$, el grupo es cerrado. La
+identidad es la matriz $I$.
+
+Como $\begin{bmatrix}a&b\\c&d\end{bmatrix}^{-1} = \begin{bmatrix}d&-b\\-c&a
+\end{bmatrix}$ y $\det A = ad - bc = 1$, entonces $\det A^{-1} = da -
+(-b)(-c) = ad - bc = 1$ y el inverso existe en el grupo.
+
+\Problem{12} Para cada entero n > 2, demuestra que existen al menos dos
+elementos en $U(n)$ tales que $x^2 = 1$
+
+\TheSolution{}
+Primero, $1^2 = 1$ es el ejemplo obvio. Despues, por propiedades de la
+aritmetica modular, ${(n - 1)}^2 = 1^2 = 1$
+
+\Problem{13} Un profesor de algebra abstracta quiso darle a un mecanógrafo una
+lista de nueve enteros que formaran un grupo bajo la multiplicación modulo 91,
+asi que la lista apareció como 1, 9, 16, 22, 53, 74, 79, 81. ¿Cual entero sé
+quedó afuera?
+
+\TheSolution{}
+Por la propiedad de clausura, haciendo la talacha, encontramos que $9 · 74 =
+29$ y 29 no está en la lista.
+
+\Problem{14} Sea $G$ un grupo con la siguiente propiedad: Cuando $a, b$ y $c$
+pertenecen a G y $ab = ca$ entonces b = c. Prueba que G es abeliano.
+
+\TheSolution{}
+Tenemos que
+
+\[
+\begin{split}
+ab & = abe \\
+   & = ab(a^{-1}a) \\
+   & = (aba^{-1})a
+\end{split}
+\]
+
+Por hipotesis, $b = aba^{-1}$. Luego,
+
+\[
+\begin{split}
+ba & = (aba^{-1})a \\
+   & = ab(a^{-1}a) \\
+   & = ab
+\end{split}
+\]
+
+Por lo tanto, G es abeliano.
+
+\Problem{15} Sean $a$ y $b$ elementos de un grupo abeliano y n cualquier entero.
+Demuestre que ${(ab)}^n = a^{n}b^n$. ¿Esto tambien es verdad para grupos no
+abelianos?
+
+Cuando $n \geq 0$ utilizamos inducción. Para el caso base, ${(ab)}^0 = e$ y
+$a^{0}b^{0} = (e)(e) = e$. En el paso inductivo, ${(ab)}^{n + 1} = {(ab)}^{n}ab =
+a^{n}b^{n}ab = a^{n + 1}b^{n + 1}$. Para $n < 0$, decimos que $e = {(ab)}^0 =
+{(ab)}^{n}{(ab)}^{-n} = a^{n}b^{n}{(ab)}^{-n}$. De aqui procede que ${(ab)}^n =
+a^{n}b^{n}$.
+
+\Problem{17} Demuestre que un grupo $G$ es abeliano si y solo si ${(ab)}^{-1} =
+a^{-1}b^{-1}$ para toda $a$ y $b$ en $G$.
+
+\TheSolution{} Si G es abeliano entonces ${(ab)}^{-1} = a^{-1}b^{-1}$
+por la propiedad demostrada en el problema 15.
+
+Si ${(ab)}^{-1} = a^{-1}b^{-1}$, entonces $e = {(ab)}{(ab)}^{-1} = aba^{-1}b^{-1}$.
+De aqui sabemos que $b = aba^{-1}$. Multiplicando por a por la derecha obtenemos que
+$ba = ab$ y por tanto G es abeliano.
+
+\Problem{18} Demuestre que en un grupo, ${(a^{-1})}^{-1} = a$ para toda $a$.
+
+\TheSolution{} Sabemos que $a^{-1}{(a^{-1})}^{-1} = e$. Multiplicando por $a$ por la
+izquierda obtenemos que ${(a^{-1})}^{-1} = a$.
+
+\Problem{19} Para cualesquiera elementos $a$ y $b$ de un grupo y cualquier entero
+$n$, demuestra que ${(a^{-1}ba)}^{n} = a^{-1}b^{n}a$.
+
+\TheSolution{} Se cumple trivialmente cuando $n = 0$. Cuando $n > 0$, ${(a^{-1})}^{n}
+= {(a^{-1}ba)}^{n} = {(a^{-1}ba)}{(a^{-1}ba)}\ldots{(a^{-1}ba)}$ $n$ veces. Se
+pueden asociar los pares de $(aa^{-1})$ para eliminarlos y llegar a que
+${(a^{-1}ba)}^{n} = a^{-1}b^{n}a$. Cuando $n < 0$, observamos que $e =
+{(a^{-1}ba)}^{n}{(a^{-1}ba)}^{-n} = a^{-1}b^{n}a{(a^{-1}ba)}^{-n}$. Multiplicando
+ambos lados por ${(a^{-1}ba)}^{n}$ por la derecha, llegamos a que ${(a^{-1}ba)}^{n} =
+a^{-1}b^{n}a$.
+
+\Problem{20} Si $a_1,a_2,\ldots,a_n$ pertenecen a un grupo, ¿Cual es la inversa de
+$a_1,a_2,\ldots,a_n$?
+
+\TheSolution{} $a_n^{-1},a_{n - 1}^{-1},\ldots,a_2^{-1},a_1^{-1}$.
+
+\Problem{22} Da un ejemplo de un grupo con 105 elementos. Dá dos ejemplos de
+grupos con 44 elementos.
+
+\TheSolution{} $Z_{105}$ tiene 105 elementos. $Z_{44}$ y $D_{22}$ tienen 44 elementos.
+
+\Problem{26} Demuestra que si ${(ab)}^2 = a^{2}b^{2}$ entonces $ab = ba$.
+
+\TheSolution{} Reescribimos la premisa como $aabb = abab$ multiplicamos por $a^{-1}$
+por la izquierda y $b^{-1}$ por la derecha y obtenemos que $ab = ba$.
+
+\Problem{27} Sean $a$, $b$ y $c$ elementos de un grupo. Resuelve la ecuación $axb = c$
+para $x$. Resulelva $a^{-1}xa = c$ para $x$.
+
+\TheSolution{}
+\[
+\begin{split}
+  axb            & = c \\
+  a^{-1}axb = xb & = a^{-1}c \\
+  xbb^{-1} = x   & = a^{-1}cb^{-1}
+\end{split}
+\]
+
+\[
+\begin{split}
+  a^{-1}xa       & = c \\
+  aa^{-1}xa = xa & = ac \\
+  xaa^{-1} = x   & = aca^{-1}
+\end{split}
+\]
+
+\Problem{29}Sea $G$ un grupo finito. Muestra que el numero de elementos $x$ de
+$G$ tales que $x^3 = e$ es impar. Muestra que el numero de elementos $x$ de
+$G$ tales que $x^2 \neq e$ es par.
+
+\TheSolution{} Primero vemos que si tenemos una solución $a$ tal que
+$a^3 = e$ y $a \neq e$, tambien tenemos que ${(a^{-1})}^3 = e$. Ademas, si
+tenemos una solución $b^3 = e$ tal que $b \neq e$, $b \neq a$ y
+$b \neq a^{-1}$, sabemos que existe otra solución $b^{-1} = e$ tal que
+$b^{-1} \neq e$, $b^{-1} \neq a$, $b^{-1} \neq b$, y $b^{-1} \neq a^{-1}$.
+Por lo tanto, concluimos que las soluciones a $x^3 = e$ que no son la
+identidad vienen en pares. Agregando la identidad, tenemos un numero impar
+de soluciones totales.
+
+Para la segunda pregunta, sabemos que si $x^2 \neq e$, entonces $x \neq
+x^{-1}$. Luego podemos aplicar la misma logica que en el caso anterior
+para probar que las soluciones a la ecuación vienen en pares, con la
+diferencia que ahora la identidad no la satisface, dandonos un numero
+par de soluciones.
+
+\Problem{36} Demuestre que el conjunto de matrices $3 \times 3$ con de la
+forma
+
+\[
+\begin{bmatrix}
+    1  &  a & b    \\
+    0  &  1 & c \\
+    0  &  0 & 1
+\end{bmatrix}
+\]
+
+es un grupo. (La multiplicación esta definida por
+
+\[
+\begin{bmatrix}
+    1  &  a & b    \\
+    0  &  1 & c \\
+    0  &  0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    1  &  a' & b'    \\
+    0  &  1 & c' \\
+    0  &  0 & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1  &  a + a' & b' + ac' + b    \\
+    0  &  1 & c' + c \\
+    0  &  0 & 1
+\end{bmatrix}
+\]
+
+Este grupo, a veces llamado el \textit{Grupo de Heisenberg} en honor al fisico
+ganador del Nobel Werner Heisenberg, y esta intimamente relacionado al
+principio de incertidumbre de Heisenberg en la fisica cuantica.)
+
+\TheSolution{} Por definición se cumple la cerradura. La identidad es la
+matríz $I$. La inversa de la matriz con entradas $a$, $b$ y $c$ se obtiene
+encontrando los $a'$, $b'$ y $c'$ tales que
+
+\[
+\begin{split}
+  a + a'       & = 0 \\
+  b' + ac' + b & = 0 \\
+  c' + c       & = 0
+\end{split}
+\]
+
+
+
+\end{document}

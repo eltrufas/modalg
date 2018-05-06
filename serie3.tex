@@ -1,0 +1,183 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\newcounter{problem}
+\newcounter{solution}
+
+\newcommand\Problem[1]{%
+  \stepcounter{problem}%
+  \textbf{#1.}~%
+  \setcounter{solution}{0}%
+}
+
+\newcommand\TheSolution{%
+  \textbf{Solución:}\\%
+}
+
+\newcommand\ASolution{%
+  \stepcounter{solution}%
+  \textbf{Solución \thesolution:}\\%
+}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{1em}
+
+
+\title{Tercera serie de ejercicios de Álgebra Moderna}
+\author{Akiyuki Shinbou}
+\date{Mayo 2018}
+
+\begin{document}
+
+\maketitle
+
+\Problem{1} Encuentra todos los generadores de $Z_6$, $Z_8$, $Z_{20}$
+
+\TheSolution{}
+Para $Z_6$: $\{1, 5\}$
+
+Para $Z_8$: $\{1, 3, 5, 7\}$
+
+Para $Z_{20}$: $\{1, 3, 5, 7, 11, 13, 17, 19\}$
+
+\Problem{2} Suponga que $\langle a \rangle$, $\langle b \rangle$ y $\langle c \rangle$
+son grupos ciclicos de orden 6, 8 y 20 respectivamente. Encuentra todos los generadores
+de $\langle a \rangle$, $\langle b \rangle$ y $\langle c \rangle$.
+
+Para $\langle a \rangle$, los generadores son $\{a^{1}, a^{5}\}$
+
+Para $\langle b \rangle$, los generadores son $\{b^{1}, b^{3}, b^{5}, b^{7}\}$
+
+Para $\langle c \rangle$, los generadores son $\{c^{1}, c^{3}, c^{5}, c^{7},
+c^{11}, c^{13}, c^{17}, c^{19}\}$
+
+\Problem{8} Sea $a$ un elemento de un grupo y sea $|a| = 15$. Computa el orden
+de los siguientes elementos de $G$.
+\begin{enumerate}[a.]
+  \item $a^3, a^6, a^9, a^{12}$
+  \item $a^5, a^{10}$
+  \item $a^2, a^4, a^8, a^{14}$
+\end{enumerate}
+
+\TheSolution{}
+\begin{enumerate}[a.]
+  \item $5$
+  \item $3$
+  \item $15$
+\end{enumerate}
+
+\Problem{15} Sea $G$ un grupo Abeliano y sea $H = \{g \in G | |g| $ divide a $12
+\}$. Demuestra que $H$ es un subgrupo de $G$. ¿Hay algo especial sobre el 12
+aqui? ¿Tu demostración sería valida si 12 fuera reemplazada por algun otro
+entero positivo? Enuncia el resultado general.
+
+\TheSolution{}
+Si $|g|$ es dividido por $12$, entonces $g^{12} = e$. Sean $a$ y $b$ en $H$.
+Vemos que ${(ab^-{1})}^{12} = a^{12}{(b^{12})}^{-1} = ee^{-1} = e$, por tanto,
+$H$ es subgrupo de $G$.
+
+\Problem{22} Demuestra que un grupo de orden 3 debe ser ciclico.
+
+\TheSolution{}
+Sea $G = \{e, a, b\}$. $ab$ debe estar en $G$. $ab$ no puede ser $a$ o $b$
+porque implicaria que $a = e$ o $b = e$. Por tanto, $ab = e$ y $b = a^{-1}$,
+dejando el grupo como $\{e, a, a^{-1}\}$, un grupo ciclico.
+
+\Problem{28} Por el teorema 4.3, sabemos que $\langle 1000000\rangle$ es el
+unico subgrupo de orden 8, asi que sus elementos son los unicos de orden 8:
+1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000.
+
+\Problem{36} Demuestra que un grupo finito es la union de subgrupos propios si
+y solo si el grupo no es ciclico.
+
+\TheSolution{}
+Supongamos que el grupo es la union de grupos propios. Si $G = \langle 
+a\rangle$, entonces $a$ pertenece a algun subgrupo propio $H_i$ de $G$ y
+por tanto $\langle a \rangle = G$ debe ser un subgrupo de $H_i$, lo cual es
+una contradicción.
+
+Por otro lado, asumimos que $G$ no es ciclico. Tomamos un elemento $a$
+cualquiera de $G$. Como $G$ no es ciclico, $\langle a \rangle$ es un subgrupo
+propio de $G$. Podemos repetir este proceso para todos los elementos $a$ y
+al unir estos subgrupos propios obtenemos todo $G$.
+
+\Problem{43} Sea $p$ un primo. Si un grupo tiene mas de $p - 1$ elementos de
+orden $p$, ¿Por qué el grupo no puede ser ciclico?
+
+\TheSolution{}
+Supongamos un grupo ciclico finito. Si tenemos un subgrupo de orden
+$p$, este tendra $\phi(p) = p - 1$ elementos de orden $p$ por el teorema 4.4.
+Si existiera otro elemento de orden $p$, tendria que existir otro subgrupo de
+orden $p$, lo cual contradice la propiedad de los subgrupos finitos 
+establecida en el teorema 4.3.
+
+\Problem{50} Si G es un grupo Abeliano y contiene subgrupos ciclicos de
+ordenes 4 y 6, ¿Qué otros tamaños de subgrupos ciclicos estan contenidos en
+$G$? Generalice.
+
+\TheSolution{} Tomamos dos grupos ciclicos $|\langle a \rangle| = 4$ y 
+$|\langle b\rangle| = 6$. Sabemos que ${(a^4)}^{3}{(b^6)}^2 = ee = e$, asi que
+sabemos que 12 divide a $|ab|$. Tambien sabemos que ${(ab)}^{4} = a^4 = e$,
+por lo tanto, $|ab| \neq 1, 2$ o $4$. Conversamente, vemos que ${(ab)}^{6} =
+a^{6} \neq e$, asi que $|ab| \neq 1, 2, 3, 6$. Por tanto, debe en existir
+subgrupos de orden $1, 2, 3, 4, 6$ y $12$.
+
+\Problem{57} Supón que un grupo $G$ tiene al menos nueve elmentos $x$ tales
+que $x^8 = e$. ¿Puedes concluir que $G$ no es ciclico? ¿Y si $G$ tiene al
+menos cinco elementos $x$ tales que $x^4 = e$? Generalice.
+
+\TheSolution{} Sabemos que $|x|$ divide a $8$. Si $G$ fuese ciclico, entonces
+habria exactamente $\phi(8) + \phi(4) + \phi(2) + \phi(1) = 4 + 2 + 1 + 1 = 8$
+elementos con ordenes que dividan a $8$ en $G$, asi que $G$ no es ciclico.
+Igual en el otro caso, habria $\phi(4) + \phi(2) + \phi(1) = 2 + 1 + 1 = 4$
+elementos con ordenes que dividan a 4, por lo que $G$ tampoco seria ciclico.
+
+\Problem{64} Demuestre que $H = \Bigg\{\begin{bmatrix}
+  1 & n \\
+  0 & 1
+\end{bmatrix} | n \in Z\Bigg\}$ es un subgrupo ciclico de $GL(2, R)$
+
+\TheSolution{} Observamos que $\begin{bmatrix}
+  1 & n \\
+  0 & 1
+\end{bmatrix} = \begin{bmatrix}
+  1 & 1 \\
+  0 & 1
+\end{bmatrix}^{n}$, que pertenece a $GL(2, R)$, por lo que H es un subgrupo de
+este.
+
+\Problem{71} Demuestra que para cualquier primo $p$ y entero positivo $n$,
+$\phi(p^n) = p^n - p^{n - 1}$.
+
+\TheSolution{} Los numeros menores y no relativamente primos a $p^n$ son los
+multiplos de $p$: $p, 2p, \ndots p^{n-1}p$. Hay $p^{n-1}$ de estos numeros, y
+$p^n$ numeros enteros positivos menores o iguales a $p^n$, llevando el numero
+de primos relativos a $p^n$ a $p^n - p^{n-1}$.
+
+
+\end{document}

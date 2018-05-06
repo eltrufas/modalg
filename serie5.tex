@@ -1,0 +1,188 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\newcounter{problem}
+\newcounter{solution}
+
+\newcommand\Problem[1]{%
+  \stepcounter{problem}%
+  \textbf{#1.}~%
+  \setcounter{solution}{0}%
+}
+
+\newcommand\TheSolution{%
+  \textbf{Solución:}\\%
+}
+
+\newcommand\ASolution{%
+  \stepcounter{solution}%
+  \textbf{Solución \thesolution:}\\%
+}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{1em}
+
+\title{Quinta serie de ejercicios de Álgebra Moderna}
+\author{Akiyuki Shinbou}
+\date{Mayo 2018}
+
+\begin{document}
+
+\maketitle
+
+\Problem{1} Encuentra un isomorfismo del grupo de los enteros bajo la suma al
+grupo de los enteros pares bajo la suma.
+
+\TheSolution{} $\phi(n) = 2n$. Es uno a uno porque $2n = 2m$ implica que $a =
+b$. $\phi(m + n) = 2(m + n) = 2m + 2n$, asi que la operacion del grupo se
+conserva.
+
+\Problem{8} Demuestra que el mappeo $a \rightarrow \log_{10}a$ es un
+isomorfismo de $R^+$ bajo la multiplicación a $R$ bajo la suma.
+
+\TheSolution{} La definición del logaritmo asegura que el mappeo es uno a uno
+sobre $R$, y las leyes de los logaritmos dicen que $\log_{10}(ab) = \log_{10}
+a + \log_{10}b$, por lo que la operación se preserva.
+
+\Problem{15} Si $G$ es un grupo, demuestra que $Aut(G)$ y $Inn(G)$ son grupos
+[bajo la operación de composición de funciones].
+
+\TheSolution{} Tomamos un elemento $\alpha \in Aut(G)$. Para probar que
+$Aut(G)$ es un grupo, solo hace falta mostrar que $\alpha^{-1}$ preserva la
+operación del $G$:
+\[
+\begin{split}
+  \alpha^{-1}(xy)              &= \alpha^{-1}x\alpha^{-1}y \\
+  \iff \alpha(\alpha^{-1}(xy)) &= \alpha(\alpha^{-1}x\alpha^{-1}y) \\
+  \iff xy                      &= \alpha(\alpha^{-1}x)\alpha(\alpha^{-1}y) \\
+                               &= xy
+  \end{split}
+\]
+
+Por lo que $Aut(G)$ es un grupo.
+
+\Problem{29} Sean $C$ los numeros complejos y
+
+\[
+  M = \Bigg\{
+\begin{bmatrix}
+  a & -b \\
+  b & a
+\end{bmatrix}
+\Big| a, b \in R
+\Bigg\}
+\]
+
+Demuestre que $C$ y $M$ son isomorficos bajo la suma y que $C*$ y $M*$, los
+elemenos no cero de $M$, son isomorficos bajo la multiplicación.
+
+\TheSolution{}
+Tomamos el isomorfismo
+\[
+\phi(a + bi)
+  =
+\begin{bmatrix}
+  a & -b \\
+  b & a
+\end{bmatrix}
+\]
+
+Revisamos la operación:
+
+\[
+\begin{split}
+  \phi((a + bi) + (c + di)) &=
+\begin{bmatrix}
+  a + c & -(b + d) \\
+  b + d & a + c
+\end{bmatrix} = \\
+\begin{bmatrix}
+  a & -b \\
+  b & a
+\end{bmatrix}
++
+\begin{bmatrix}
+  c & -d \\
+  d & c
+\end{bmatrix}
+&=
+\phi(a + bi) + \phi(c + di)
+\end{split}
+\]
+
+Y para el otro caso:
+
+\[
+\begin{align}
+  \phi((a + bi)(c + di)) = \phi((ac - bd) + (ad + bc)i) = \\
+\begin{bmatrix}
+  ac - bd & -(ad + bc) \\
+  ac + bd & ac - bd
+\end{bmatrix}
+=
+\begin{bmatrix}
+  a & -b \\
+  b & a
+\end{bmatrix}
+\begin{bmatrix}
+  c & -d \\
+  d & c
+\end{bmatrix}
+\end{align}
+\]
+
+\Problem{33} Sea $G$ un grupo y sea $g \in G$. Si $z \in Z(G)$, muestra que
+el automorfismo interno inducido por $g$ es el mismo que el automorfismo
+inducido por $zg$ (esto es, que los mappeos $\phi_g$ y $\phi_{zg}$ son
+iguales).
+
+\TheSolution{} $\phi_g(x) = gxg^{-1}$ y $\phi_{zg}(x) = zgx{(zg)}^{-1} =
+zgxz^{-1}g^{-1} = zz^{-1}gxg^{-1} = gxg^{-1}$ ya que $z \in Z(G)$.
+
+\Problem{35} Supón que $g$ y $h$ inducen el mismo automorfismo interno de un
+grupo $G$. Demuestra que $h^{-1}g \in Z(G)$.
+
+\TheSolution{} Si $\phi_g = \phi_h$, entonces $gxg^{-1} = hxh^{-1}$ para toda
+$x$. Entonces $x = h^{-1}gxg^{-1}h = h^{-1}gx{(h^{-1}g)}^{-1}$, lo que implica
+que $h^{-1}g \in Z(G)$.
+
+\Problem{36} Combina los resultados del ejercicio 33 y 35 en un solo teorema
+``Si y solo si''.
+
+\TheSolution{} $\phi_g = \phi_h$ si y solo si $h^{-1}g \in Z(G)$
+
+\Problem{43} Demuestra que $Q^+$, el grupo de los numeros racionales positivos
+bajo la multiplicación, es isomorfo a un subgrupo propio.
+
+\TheSolution{} $\phi(x) = x^2$ es uno a uno, ya que si $a^2 = b^2$, $a = b$
+para $a$ y $b$ en $Q^+$. La operación se preserva, ya que $\phi(ab) = (ab^2) =
+a^2b^2 = \phi(a)\phi(b)$. Sin embargo, $\phi$, no es sobre, ya que no existe
+numero racional cuyo cuadrado sea 2, asi que la imagen de $\phi$ forma un
+subgrupo propio de $Q^+$.
+
+\end{document}
