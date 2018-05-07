@@ -1,0 +1,153 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\newcounter{problem}
+\newcounter{solution}
+
+\newcommand\Problem[1]{%
+  \stepcounter{problem}%
+  \textbf{#1.}~%
+  \setcounter{solution}{0}%
+}
+
+\newcommand\TheSolution{%
+  \textbf{Solución:}\\%
+}
+
+\newcommand\ASolution{%
+  \stepcounter{solution}%
+  \textbf{Solución \thesolution:}\\%
+}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{1em}
+
+\title{Primera serie de ejercicios de Álgebra Moderna}
+\author{Akiyuki Shinbou}
+\date{Mayo 2018}
+
+\begin{document}
+
+\maketitle
+
+\Problem{1} Para $n = 5, 8, 12, 20$ y $25$, encuentra todos los enteros
+positivos menores a $n$ y relativamente primos a $n$.
+
+\TheSolution{}
+Para $n = 5$: $\{1, 2, 3, 4\}$
+Para $n = 8$: $\{1, 3, 5, 7\}$
+Para $n = 12$: $\{1, 5, 7, 11\}$
+Para $n = 20$: $\{1, 3, 7, 9, 11, 13, 17, 19\}$
+Para $n = 25$: $\{1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 16, 17, 18, 19, 21,
+22, 23, 24\}$
+
+\Problem{2} Determina $\gcd(2^4 \cdot 3^2 \cdot 5 \cdot  7^2,  2 \cdot 3^3
+\cdot 7 \cdot 11)$ y $\lcm(2^3 \cdot 3^2 \cdot 5, 2 \cdot 3^3 \cdot 7 \cdot
+11)$
+
+\TheSolution{}
+$\gcd(2^4 \cdot 3^2 \cdot 5 \cdot  7^2,  2 \cdot 3^3 \cdot 7 \cdot 11) = 2
+\cdot 3^2 \cdot 7$.
+
+$\lcm(2^3 \cdot 3^2 \cdot 5, 2 \cdot 3^3 \cdot 7 \cdot 11) = 2^3 \cdot 3^3
+\cdot 5 \cdot 7 \cdot 11$
+
+\Problem{3}
+Determine $51 \mod 13$, $342 \mod 85$, $62 \mod 15$, $10 \mod 15$, $(82 \cdot
+73) \mod 7$, $(51 + 68) \mod 7$, $(35 \cdot 24) \mod 11$, y $(47 + 68) \mod
+11$.
+
+\TheSolution{}
+$51 \mod 13 = 12$
+
+$342 \mod 85 = (2 \mod 85 \cdot 171 \mod 85) \mod 85 = (2 \cdot 1) \mod 85 = 2$
+
+$62 \mod 15 = 2$
+
+$10 \mod 15 = 10$
+
+$(82 \cdot 73) \mod 7 = (5 \cdot 3) \mod 7 = 1$
+
+$(51 + 68) \mod 7 = (2 + 5) \mod 7 = 0$
+
+$(35 \cdot 24) \mod 11 = (2 \cdot 2) \mod 11 = 4$
+
+$(47 + 68) \mod 11 = (3 + 2) \mod 11 = 5$
+
+\Problem{4} Encuentra enteros s y t tales que $1 = 7 \cdot s + 11 \cdot t$.
+Muestra que $s$ y $t$ no son unicos.
+
+\TheSolution{}
+Dos soluciones: $s = 8, t = -5$; $s = 19, t = -12$
+
+\Problem{5} En Florida, el cuarto y quinto digito del final de una licencia de
+conducir da el año de nacimiento. Los ultimos tres digitos de un hombre con
+mes de nacimiento $m$ y dia de nacimiento $b$ son representados por $40(m -
+1)$. Para las mujeres los digitos son $40(m - 1) + b + 500$. Determine las
+fechas de nacimiento y sexos correspondientes a los numeros 42218 y 53953.
+
+\TheSolution{}
+42218: Hombre; 18 de Junio del 42.
+
+53953: Mujer; 13 de diciembre del 53.
+
+\Problem{7} Para las licencias de conducir en Nueva York previas al septiembre
+de 1992, los tres digitos precediendo a los ultimos 3 del numero de un hombre
+con mes de nacimiento $m$ y dia de nacimiento $b$ se representan por $63m +
+2b$. Para mujeres los digitos son 63m + 2b + 1. Determine las fechas de
+nacimiento y los sexos correspondientes a los numeros 248 y 601.
+
+248: Mujer; 29 de Junio.
+
+601: Hombre; 17 de Septiembre
+
+\Problem{7} Demuestra que si $a$ y $b$ son enteros positivos, entonces $ab =
+\lcm(a, b)\cdot\gcd(a, b)$.
+
+\TheSolution{} Podemos expresar $a$ y $b$ como factores primos elevados a una
+potencia no negativa: $a = p_1^{m_1}\cdot p_2^{m_2}\cdot \ldots\cdot
+p_k^{m_k}$ y $b = p_1^{n_1}\cdot p_2^{n_2}\cdot \ldots\cdot p_k^{n_k}$.
+Entonces $lcm(a, b) = p_1^{s_1}\cdot p_2^{s_2}\cdot \ldots\cdot p_k^{s_k}$,
+donde $s_i = \max(m_i, n_i)$ y $\gcd(a, b) = p_1^{t_1}\cdot p_2^{t_2}\cdot
+\ldots\cdot p_k^{t_k}$ donde $t_i = \min(m_i, n_i)$. Ahora, $lcm(a, b)
+\cdot \gcd(a, b) = p_1^{m_1 + n_1}\cdot p_2^{m_2 + n_2}\cdot \ldots\cdot
+p_k^{m_k + n_k} = ab$
+
+\Problem{8} Supón que $a$ y $b$ son enteros que dividen al entero $c$. Si $a$
+y $b$ son primos relativos, demuestra que $ab$ divide a $c$. Muestra, por
+ejemplo, que si $a$ y $b$ no son primos relativos, entonces $ab$ no
+necesariamente divide a $c$.
+
+\TheSolution{}
+Si $a$ y $b$ son primos relativos, entonces los podemos expresar como una
+relación lineal $1 = as + bt$. Ademas, como $a$ y $b$ dividen a $c$, sabemos
+que existen $u, v \in Z$.
+
+
+
+\end{document}
