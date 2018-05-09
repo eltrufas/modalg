@@ -55,7 +55,8 @@
 \maketitle
 
 
-\Problem{1} Encuentre el orden de las siguientes permutaciones. \begin{enumerate}[a.]
+\Problem{1} Encuentre el orden de las siguientes permutaciones.
+\begin{enumerate}[a.]
   \item $(14)$
   \item $(147)$
   \item $(14762)$
@@ -69,6 +70,31 @@
   \item $k$
 \end{enumerate}
 
+\Problem{2} Escribe cada una de las siguientes permutaciones como un producto
+de ciclos disjuntos.
+\begin{enumerate}[a.]
+  \item  (1235){(413)}
+  \item (13256){(23)}{(46512)}
+  \item (12){(13)}{(23)}{(142)}
+\end{enumerate}
+
+\TheSolution{}
+\begin{enumerate}[a.]
+\item(124){(35)}
+\item (124){(35)}{(6)}
+\item (1342)
+\end{enumerate}
+
+\Problem{5} ¿Cual es el orden del producto de un par de ciclos disjuntos de
+longitud 4 y 6?
+
+\TheSolution{}
+\begin{align*}
+  \textrm{Orden} &= lcm(4, 6)\\
+  \textrm{Orden} &= 12
+\end{align*}
+
+
 \Problem{8} ¿Cual es el orden maximo de cualquier elemento en $A_{10}$?
 
 \TheSolution{} Podemos escribir cada elemento de $A_{10}$ como un producto de
@@ -76,6 +102,52 @@ ciclos disjuntos, y el orden del elemento es el producto de esos ciclos.
 Encontramos que el orden mayor que podemos obtener multiplicando estos ciclos
 y seguir teniendo una permutación par es un par de permutaciones de ordenes 7
 y 3, con orden 21, por ejemplo $(1234567)(89 10)$
+
+\Problem{9} Determina cuales de las siguientes permutaciones son pares o
+impares.
+\begin{enumerate}[a.]
+	\item (135)
+  \item (1356)
+  \item (13567)
+  \item (12) (134) (152)
+  \item (1243) (3521)
+\end{enumerate}
+
+\TheSolution{}
+Ya que podemos expresar toda permutación como $k$ 2-ciclos, y el número de
+2-ciclos por el que está formado determina si es par o impar, los obtendríamos
+como sigue:
+
+\[
+  (135)=(13)(15)
+\]
+
+entonces este es un ciclo par, ya que tiene DOS 2-ciclos. Para los siguientes
+se omitirá esta obvia conclusión y se deja desarrollado en su forma de $k$
+2-ciclos.
+
+\[{(1356)} = {(13)}{(15)}{(16)}\]
+\[(13567) = (13)(15)(16)(17)\]
+\[(12)(134)(152) = (15)(234)=(15)(23)(24)\]
+\[(1243)(3521) = (12)(14)(13)(35)(32)\]
+
+\Problem{12} Si $\alpha$ es par, demuestra que $\alpha^{-1}$ es par. Si
+$\alpha$ es impar, demuestra que $\alpha^{-1}$ es impar.
+
+\TheSolution{}
+Sea $\alpha$ una multiplicación de 2-ciclos (dado que se puede representar
+cualquier permutaci\'on finita como una multiplicación de 2-ciclos). Y también
+sea $\alpha = x_1,x_2,\dots,x_n$ para algun entero positivo donde $x_i$ es un
+2-ciclo para toda $i=1,\dots,n$. Entonces se tiene:\\
+		\begin{align*}
+      \alpha^{-1} &= {(x_1,x_2,\dots,x_n)}^{-1}\\
+			&= x_1^{-1}, x_2^{-1},\dots,x_n^{-1}\\
+		\end{align*}
+Desde que la inversa de cada 2-ciclos es si mismo, entonces $x_i^{-1} = x_i$
+por cada $i=1,\dots,n$. Despu\'es, se puede notar que $\alpha^{-1}$ tiene el
+mismo n\'umero de 2-ciclos que $\alpha$, entonces si $\alpha$ es par, entonces
+$\alpha^{-1}$ es par tambi\'en, y lo mismo ocurre si $\alpha$ es impar,
+$\alpha^{-1}$ es impar.
 
 \Problem{15} Sea $\alpha$ y $\beta$ en $S_n$. Demuestra que $\alpha\beta$ es
 par si y solo si $\alpha$ y $\beta$ son ambos pares o ambo impares.
@@ -85,12 +157,92 @@ $\beta$ un producto de $m$ 2-ciclos. Así, $\alpha\beta$ es un producto de
 $m + n$ 2-ciclos, y $m + n$ solo es par si $m$ y $n$ son ambos pares o
 impares.
 
+\Problem{16} Asocia una permutación par con el numero $+1$ y una permutación
+impar con el numero $-1$. Has una analogia entre el resultado de multiplicar
+dos permutaciones y el resultado de multiplicar sus numeros $1$ o $-1$
+correspondientes.
+
+\TheSolution{}
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{c|cc}
+* & Odd & Even \\ \hline
+Odd & Odd  & Even\\
+Even & Even & Odd \\
+\end{tabular}
+\caption{Técnica pedagógica avanzada para mostrar el producto de permutaciones
+pares e impares}
+\end{center}
+\end{table}
+
+Recordemos nuestros buenos tiempos en la primaria, cuando para familiarizarnos
+con el producto de enteros con o sin signo, nos pudieron haber mostrado esta
+tablita:
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{c|cc}
+* & + & - \\ \hline
++ & +  & -\\
+- & - & + \\
+\end{tabular}
+\caption{Tabla Iluminati}
+\end{center}
+\end{table}
+
+\Problem{19} Demuestra que si $H$ es un subgrupo de $S_n$, entonces todo
+numero de $H$ es una permutación par o exactamente la mitad de los elementos
+es par.
+
+\TheSolution{}
+Sea $H$ un subgrupo de $S_n$. Si $H$ no contiene ninguna permutaci\'on impar,
+entonces H solo contiene permutaciones par.
+
+Por otro lado, si $H$ contiene permutaciones impares, sea $\alpha \in H$ una
+permutación impar, y consideremos la siguiente función $f: H \rightarrow
+H$, donde $f(h) = \alpha \cdot h$, donde si $h$ (el cual pertenece a $H$) es
+par, $f(h) = \alpha h$ es impar (par$\cdot$impar$=$impar). Desde que $h$ y
+$\alpha$ estan en $H$, entonces $f(h)=\alpha h$ esta en $H$ también. Esto
+conlleva a que $f$ envia permutaciones pares en $H$ a permutaciones impares
+en $H$.
+
+Tambi\'en se puede notar que la funci\'on $f$ es inyectiva: Suponga que
+$f(i) = f(j)$. Esto es $\alpha i = \alpha j$, y las $\alpha$s se pueden
+cancelar multiplicando $\alpha^{-1}$ por la izquierda, y esto deja que $i=j$,
+por lo que $f$ es inyectiva.
+
+También se puede ver que $f$ es sobreyectiva. Sea $i$ una permutación
+impar. Entonces $\alpha^{-1}i$ es una permutación par (porque impar$\cdot$
+impar$=$par), y esta en $H$ porque $\alpha$ (consecuentemente, también $\alpha
+^{-1}$) e $i$ están en $H$. Consecuentemente $\alpha^{-1}i \in H$. También
+se nota que $f(\alpha^{-1}i) = \alpha\alpha^{-1}i = i$, y esto sigue a que $f$
+es sobreyectiva.
+
+Esto demuestra a que hay una función inyectiva y sobreyectiva $f$ par
+$\rightarrow $ impar, entonces $|$par$|=|$impar$|$. Entonces la mitad de las
+permutaciones de $H$ son pares y la otra mitad son impares.
+
 \Problem{22} Sea $\alpha$ y $\beta$ en $S_n$. Demuestra que $\alpha^{-1}\beta
 ^{-1}\alpha\beta$ es una permutación par.
 
 \TheSolution{} Podemos expresar $\alpha$ como un producto de $n$ 2-ciclos, y
 $\beta$ un producto de $m$ 2-ciclos. Así, $\\alpha^{-1}\beta^{-1}alpha\beta$
 es un producto de$m + n + m + n = 2(m + n)$, un numero par.
+
+\Problem{26} Demuestra que (1234) no es un producto de 3-ciclos.
+
+\TheSolution{}
+Sea $y=(1234)$, esto también es igual a $(1,2)(1,3)(1,4)$, el cual es impar.
+
+Entonces, sea $y = y_1y_2\dots y_m$, y sea $y_i = (a_{1i}a_{2i}a_{3i})$ (todas
+las $y$'s son 3-ciclos)
+
+Pero cada $y_i$ es par ya que $y_i$ tambi\'en se representar como $y_i = (a_
+{1i}a_{2i})(a_{1i}a_{3i})$,
+
+Entonces $y$ es igual al producto de 2-ciclos pares, pero la hip\'otesis dice
+que que $(1234)$ es un producto de 3-ciclos y eso genera una contradicci\'on.
+
 
 \Problem{29} Encuentra tres elementos $\sigma$ en $S_9$ con la propiedad de
 que $\sigma^3 = (157)(283)(469)$
@@ -100,12 +252,74 @@ a_7 a_8 a_9)$ al cubo obtenemos $(a_1 a_4 a_7)(a_2 a_5 a_8)(a_3 a_6 a_9)$.
 Observando que $(157)(283)(469) = (157)(469)(283) = (283)(157)(469)$, llegamos
 a los 9 ciclos $(124586739)$, $(142568793)$ y $(214856379)$.
 
+\Problem{30} ¿Qué ciclo es ${(a_{1}a_{2}\cdots a_{n})}^{-1}$?
+
+\TheSolution{}
+Dado que la identidad la podemos expresar como
+
+\[(a_{1})(a_{2})(a_{3})\cdots (a_{n})\]
+
+en el conjunto de permutaciones, entonces, bajo el proceso de operar de
+derecha a izquierda, buscamos que el producto de tal permutación por su
+inversa nos regrese, primero, $(a_{1})$, y así sucesivamente. De tal manera
+que la única manera sería 
+
+\[(a_{n}a_{n-1}a_{n-2}\cdot\cdot\cdot a_{1})\]
+
+y esa sería la inversa.
+
+\Problem{33} Sea $alpha = (1, 3, 5, 7, 9)(2, 4, 6)(8, 10)$. Si $\alpha$ es
+5-ciclo, ¿Qué puedes decir acerca de $m$?
+
+\TheSolution{}
+\[
+\begin{split}
+  \alpha   &= (1, 3, 5, 7, 9)(2, 4, 6)(8, 10) \\
+  |\alpha| &= lcm(5,3,2) = 30 \\
+\end{split}
+\]
+  $\alpha^m $ es un 5-ciclo. 
+\[
+\begin{split}
+  \alpha^{5m} &= e = \alpha^{30n} \text{ donde } n \in N \\
+  5m &= 30n \\
+  m &= 6k \text{ donde } k \in N \\
+\end{split}
+\]
+
+$m$ es múltiplo de 6.
+
 \Problem{36} En $S_4$, encuentra un subgrupo ciclico de orden 4 y un subgrupo
 no ciclico de orden 4.
 
 \TheSolution{} $(1234)$ es un ciclo de orden cuatro, $\langle(1234)\rangle$ es
 un subgrupo ciclico de orden 4. Un subgrupo no ciclico seria un conjunto con
 solo permutaciones disjuntas, por ejemplo $\{ (1), (12), (34), (12)(34)\}$.
+
+\Problem{37} Supón que $\beta$ es un 10-ciclo. ¿Para cuales enteros $i$ entre
+2 y 10 $\beta i$ tambien es un 10-ciclo?
+
+\TheSolution{}
+Al calcular $\beta ^{2} = (a_{1}a_{2}\cdot\cdot\cdot a_{10})\cdot (a_{1}a_{2}
+\cdot\cdot\cdot a_{10})$  notamos que los si empezamos la permutación
+resultado con algún $a_{k}$ tal que $k\in [1,10]$, será de la forma:
+\[
+  (a_{(k)mod10}a_{(k+2)mod10}\cdot\cdot\cdot a_{(k+8)mod10})\cdot (a_{(k+1)
+  \mod10}a_{(k+3)mod10}\cdot\cdot\cdot a_{(k+9)mod10})
+\]
+
+Es decir, que obtenemos dos 5-ciclos. Esto se debe a que el $2$ divide al
+$10$. En general, para saber si nuestra $n$ para $\beta ^{n}$ hace que esta
+última expresión sea un 10-ciclos, necesitamos que los múltiplos de $n$ módulo
+10 nos generen los diez elementos. Por ejemplo, para $n=3$:
+
+$3,6,9$. Sin necesidad de operarlo por el módulo 10.
+$12\mod10=2,15\mod10=5,18\mod10=8$. Ahora tenemos otros tres elementos más que
+son generados en el mismo ciclo. Lo equivalente para los siguientes tres, que
+son $1,4,7$. Entonces, para $n=3$ obtenemos un 10-ciclo. Lo mismo para $7$ y
+$9$. En general, es suficiente que $n$ y 10(o incluso cualquier ciclo) sean
+primos relativos. Lo que implica que tampoco funciona, en este caso, para el 4
+ni el 8.
 
 \Problem{43} Demuestra que $A_5$ tiene 24 elementos de orden 5, 20 elementos
 de orden 3 y 15 elementos de orden 2.
@@ -117,6 +331,26 @@ elementos de la forma $(abc)$. Para el caso de los elementos de orden 2,
 encontramos los elementos de la forma $(ab)(cd)$, que son $(5 * 4 * 3 * 2)/8
 = 15$, donde dividimos entre 8 porque existen 8 formas de escribir el mismo
 par de 2-ciclos.
+
+\Problem{47} Demuestra que cada elemento en $A_n$ para $n \geq$ puede ser
+expresada como un 3-ciclo o un producto de tres ciclos.
+
+Sea $\alpha \in A_n$ para $n \geq 3$
+
+\[
+\begin{split}
+  \alpha           &= (a_1a_2)(a_3a_4)\dots(a_{m-1}a_m) \\
+  (a_1a_2)(a_3a_4) &= (ab)(cd) o (ab)(bc) \\
+\end{split}
+\]
+Si los 4 son distintos:
+\[
+\begin{split}
+  \tab (a_1a_2) (a_3a_4) &= (a_1a_2a_3) (a_3a_1a_4)\\
+  \text{Si uno de ellos es igual, por ejemplo} a_2 = a_3\\
+  \tab (a_1a_2) (a_3a_4) &= (a_1a_3a_2)
+\end{split}
+\]
 
 \Problem{50} Utiliza el esquema de verificación de digitos de Verhoeff basado
 en $D_5$ para agregar un digito de verificación a 45723. 

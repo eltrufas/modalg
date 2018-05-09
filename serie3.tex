@@ -65,9 +65,10 @@ Para $Z_8$: $\{1, 3, 5, 7\}$
 
 Para $Z_{20}$: $\{1, 3, 5, 7, 11, 13, 17, 19\}$
 
-\Problem{2} Suponga que $\langle a \rangle$, $\langle b \rangle$ y $\langle c \rangle$
-son grupos ciclicos de orden 6, 8 y 20 respectivamente. Encuentra todos los generadores
-de $\langle a \rangle$, $\langle b \rangle$ y $\langle c \rangle$.
+\Problem{2} Suponga que $\langle a \rangle$, $\langle b \rangle$ y $\langle c
+\rangle$ son grupos ciclicos de orden 6, 8 y 20 respectivamente. Encuentra
+todos los generadores de $\langle a \rangle$, $\langle b \rangle$ y $\langle c
+\rangle$.
 
 Para $\langle a \rangle$, los generadores son $\{a^{1}, a^{5}\}$
 
@@ -75,6 +76,57 @@ Para $\langle b \rangle$, los generadores son $\{b^{1}, b^{3}, b^{5}, b^{7}\}$
 
 Para $\langle c \rangle$, los generadores son $\{c^{1}, c^{3}, c^{5}, c^{7},
 c^{11}, c^{13}, c^{17}, c^{19}\}$
+
+\Problem{3} Enlista los elementos de los subgrupos $\langle20\rangle$ y
+$\langle 10 \rangle$ en $Z_{30}$. Sea $a$ el elemento del grupo de orden 30.
+Enlista los elementos de los subgrupos $a^{20}$ y $a^{10}$.
+
+\[
+\begin{align*}
+  \langle 20 \rangle &= \{0, 10, 20\} \\
+  \langle 10 \rangle &= \{0, 10, 20\} \\
+\end{align*}
+\]
+
+Para $a$
+
+\[
+\begin{align*}
+  |a| = |\langle a \rangle| &= 30 \\
+  mcd(30,20)  &= mcd(30,10) \\
+              &= 1 0\\
+  |\langle a^{10}\rangle| &= |\langle a^{20}\rangle| \\
+                          &= 30 / 10 = 3 \\
+  \langle a^{10}\rangle = \langle a^{20} \rangle &= \langle a^{mcd(30, 10)} \rangle \\
+                                                 &= \langle a^{mcd(30, 20)}\rangle \\
+                                                 &= \langle a^{10}\rangle \\
+	\langle a^{10} \rangle                         &= \{e, a^{10}, a^{20}\}
+\end{align*}
+\]
+
+\Problem{5} Enlista los elementos de los subgrupos $\langle3\rangle$ y
+$\langle 7 \rangle$ en $U(20)$
+
+\TheSolution{}
+
+\[U(20) = \{1,3,7,9,11,13,17,19\}\]
+
+\[
+\begin{flalign*}
+  &3^1 = 3 \\
+  &3^2 = 9 \\
+  &3^3 = 27 \mod 20 = 7 \\
+  &3^4 = 7 \cdot 3 \mod 20 = 1 \\
+  &3^5 = 3\cdot1 \\
+  &\langle3\rangle = \{3,7,9,1\} \\ \\
+  &7^1 = 7 \\
+  &7^2 = 49 \mod 20 = 9 \\
+  &7^3 = 9\cdot7 \mod 20 = 3 \\
+  &7^4 = 3 \cdot 7 \mod 20 = 1 \\
+  &\langle7\rangle = \{1,3,7,9\}
+\end{flalign*}
+\]
+
 
 \Problem{8} Sea $a$ un elemento de un grupo y sea $|a| = 15$. Computa el orden
 de los siguientes elementos de $G$.
@@ -90,6 +142,47 @@ de los siguientes elementos de $G$.
   \item $3$
   \item $15$
 \end{enumerate}
+
+\Problem{9} ¿Cuantos subgrupos tiene $Z_{20}$? Enlista los generadores de cada
+uno de estos subgrupos. Suponga que $G = \langle a \rangle$ y $|a| = 20$.
+¿Cuantos de estos subrupos tiene $G$? Enlista los generadores de estos subgrupos.
+
+\TheSolution{}
+Usando la propiedad de los grupos, $\langle a\rangle$ es sugrupo de $G$,
+entonces contamos con $20$ subgrupos de $G$, donde el generador es obvio. De
+igual manera, ya que el orden de $a$ es 20, eso significa que para obtener la
+identidad se tuvo que operar y resultar en otros 19 elementos, donde cada uno
+de estos es generador de otro subgrupo de $G$. Es decir, que también existen
+$20$ subgrupos y cada potencia de $a$ es un generador.
+
+\Problem{10} En $Z_{24}$, enlista todos los generadores para el subgrupo de
+orden 8. Sea $G = \langle a \rangle$ y sea $|a| = 24$. Enlista todos los
+generadores del subgrupo de orden 8.
+
+\[
+\begin{align*}
+    Z_{24} &= \{0,1,...,23\} \\
+		\langle 24/8 \rangle = \langle 3 \rangle &= {0, 3, 6, 9, 12, 15, 18, 21} \\
+		|3| &= |<3>| = 8
+\end{align*}
+\]
+    Generadores para $Z_{24}$ considerando el producto mod 24: $\{3,9,15,21\}$ \\
+    Obtenidos a partir de la f\'ormula: $|a|=\frac{n}{mdc(n,k)}$ recorriendo los n\'umeros desde 0 a 24 donde 24 es el orden de $Z_{24}$ \\
+    Ahora
+    \begin{align*}
+    	<a> &= \{e, a, a^{2}, ..., a^{23}\}
+    \end{align*}
+    Subgrupo de orden 8
+    \begin{align*}
+    	<a^{\frac{24}{8}}> &= <a^{3}> \\
+        <a^{3}> &= \{e, a^{3}, a^{6}, a^{9}, a^{12}, a^{15}, a^{18}, a^{21}\}
+    \end{align*}
+    Generadores
+    \begin{align*}
+		<a^{3}> &= \{a^{3}, a^{9}, a^{15}, a^{21}\}
+    \end{align*}
+    Obtenidos de la misma forma que el inciso anterior
+\end{problem}
 
 \Problem{15} Sea $G$ un grupo Abeliano y sea $H = \{g \in G | |g| $ divide a $12
 \}$. Demuestra que $H$ es un subgrupo de $G$. ¿Hay algo especial sobre el 12
