@@ -32,7 +32,7 @@
 
 \newcommand\Problem[1]{%
   \stepcounter{problem}%
-  \textbf{#1.}~%
+  \textbf{Problema #1.}~%
   \setcounter{solution}{0}%
 }
 
@@ -117,44 +117,45 @@ Revisamos la operación:
 \[
 \begin{split}
   \phi((a + bi) + (c + di)) &=
-\begin{bmatrix}
-  a + c & -(b + d) \\
-  b + d & a + c
-\end{bmatrix} = \\
-\begin{bmatrix}
-  a & -b \\
-  b & a
-\end{bmatrix}
-+
-\begin{bmatrix}
-  c & -d \\
-  d & c
-\end{bmatrix}
-&=
-\phi(a + bi) + \phi(c + di)
+  \begin{bmatrix}
+    a + c & -(b + d) \\
+    b + d & a + c
+  \end{bmatrix}
+  = \\
+  \begin{bmatrix}
+    a & -b \\
+    b & a
+  \end{bmatrix}
+  +
+  \begin{bmatrix}
+    c & -d \\
+    d & c
+  \end{bmatrix}
+  &=
+  \phi(a + bi) + \phi(c + di)
 \end{split}
 \]
 
 Y para el otro caso:
 
-\[
+
 \begin{align}
   \phi((a + bi)(c + di)) = \phi((ac - bd) + (ad + bc)i) = \\
-\begin{bmatrix}
-  ac - bd & -(ad + bc) \\
-  ac + bd & ac - bd
-\end{bmatrix}
-=
-\begin{bmatrix}
-  a & -b \\
-  b & a
-\end{bmatrix}
-\begin{bmatrix}
-  c & -d \\
-  d & c
-\end{bmatrix}
+  \begin{bmatrix}
+    ac - bd & -(ad + bc) \\
+    ac + bd & ac - bd
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    a & -b \\
+    b & a
+  \end{bmatrix}
+  \begin{bmatrix}
+    c & -d \\
+    d & c
+  \end{bmatrix}
 \end{align}
-\]
+
 
 \Problem{33} Sea $G$ un grupo y sea $g \in G$. Si $z \in Z(G)$, muestra que
 el automorfismo interno inducido por $g$ es el mismo que el automorfismo

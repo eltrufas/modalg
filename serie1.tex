@@ -32,7 +32,7 @@
 
 \newcommand\Problem[1]{%
   \stepcounter{problem}%
-  \textbf{#1.}~%
+  \textbf{Problema #1.}~%
   \setcounter{solution}{0}%
 }
 
@@ -60,21 +60,25 @@ positivos menores a $n$ y relativamente primos a $n$.
 
 \TheSolution{}
 Para $n = 5$: $\{1, 2, 3, 4\}$
+
 Para $n = 8$: $\{1, 3, 5, 7\}$
+
 Para $n = 12$: $\{1, 5, 7, 11\}$
+
 Para $n = 20$: $\{1, 3, 7, 9, 11, 13, 17, 19\}$
+
 Para $n = 25$: $\{1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 16, 17, 18, 19, 21,
 22, 23, 24\}$
 
-\Problem{2} Determina $\gcd(2^4 \cdot 3^2 \cdot 5 \cdot  7^2,  2 \cdot 3^3
-\cdot 7 \cdot 11)$ y $\lcm(2^3 \cdot 3^2 \cdot 5, 2 \cdot 3^3 \cdot 7 \cdot
+\Problem{2} Determina $gcd(2^4 \cdot 3^2 \cdot 5 \cdot  7^2,  2 \cdot 3^3
+\cdot 7 \cdot 11)$ y $lcm(2^3 \cdot 3^2 \cdot 5, 2 \cdot 3^3 \cdot 7 \cdot
 11)$
 
 \TheSolution{}
-$\gcd(2^4 \cdot 3^2 \cdot 5 \cdot  7^2,  2 \cdot 3^3 \cdot 7 \cdot 11) = 2
+$gcd(2^4 \cdot 3^2 \cdot 5 \cdot  7^2,  2 \cdot 3^3 \cdot 7 \cdot 11) = 2
 \cdot 3^2 \cdot 7$.
 
-$\lcm(2^3 \cdot 3^2 \cdot 5, 2 \cdot 3^3 \cdot 7 \cdot 11) = 2^3 \cdot 3^3
+$lcm(2^3 \cdot 3^2 \cdot 5, 2 \cdot 3^3 \cdot 7 \cdot 11) = 2^3 \cdot 3^3
 \cdot 5 \cdot 7 \cdot 11$
 
 \Problem{3}
@@ -106,10 +110,10 @@ Muestra que $s$ y $t$ no son unicos.
 Dos soluciones: $s = 8, t = -5$; $s = 19, t = -12$
 
 \Problem{5} En Florida, el cuarto y quinto digito del final de una licencia de
-conducir da el año de nacimiento. Los ultimos tres digitos de un hombre con
-mes de nacimiento $m$ y dia de nacimiento $b$ son representados por $40(m -
-1)$. Para las mujeres los digitos son $40(m - 1) + b + 500$. Determine las
-fechas de nacimiento y sexos correspondientes a los numeros 42218 y 53953.
+conducir da el año de nacimiento. Los ultimos tres digitos de un hombre con mes
+de nacimiento $m$ y dia de nacimiento $b$ son representados por $40(m - 1)$.
+Para las mujeres los digitos son $40(m - 1) + b + 500$. Determine las fechas de
+nacimiento y sexos correspondientes a los numeros 42218 y 53953.
 
 \TheSolution{}
 42218: Hombre; 18 de Junio del 42.
@@ -118,36 +122,38 @@ fechas de nacimiento y sexos correspondientes a los numeros 42218 y 53953.
 
 \Problem{7} Para las licencias de conducir en Nueva York previas al septiembre
 de 1992, los tres digitos precediendo a los ultimos 3 del numero de un hombre
-con mes de nacimiento $m$ y dia de nacimiento $b$ se representan por $63m +
-2b$. Para mujeres los digitos son 63m + 2b + 1. Determine las fechas de
-nacimiento y los sexos correspondientes a los numeros 248 y 601.
+con mes de nacimiento $m$ y dia de nacimiento $b$ se representan por $63m + 2b$.
+Para mujeres los digitos son 63m + 2b + 1. Determine las fechas de nacimiento y
+los sexos correspondientes a los numeros 248 y 601.
 
 248: Mujer; 29 de Junio.
 
 601: Hombre; 17 de Septiembre
 
 \Problem{7} Demuestra que si $a$ y $b$ son enteros positivos, entonces $ab =
-\lcm(a, b)\cdot\gcd(a, b)$.
+lcm(a, b)\cdot gcd(a, b)$.
 
 \TheSolution{} Podemos expresar $a$ y $b$ como factores primos elevados a una
-potencia no negativa: $a = p_1^{m_1}\cdot p_2^{m_2}\cdot \ldots\cdot
-p_k^{m_k}$ y $b = p_1^{n_1}\cdot p_2^{n_2}\cdot \ldots\cdot p_k^{n_k}$.
-Entonces $lcm(a, b) = p_1^{s_1}\cdot p_2^{s_2}\cdot \ldots\cdot p_k^{s_k}$,
-donde $s_i = \max(m_i, n_i)$ y $\gcd(a, b) = p_1^{t_1}\cdot p_2^{t_2}\cdot
-\ldots\cdot p_k^{t_k}$ donde $t_i = \min(m_i, n_i)$. Ahora, $lcm(a, b)
-\cdot \gcd(a, b) = p_1^{m_1 + n_1}\cdot p_2^{m_2 + n_2}\cdot \ldots\cdot
-p_k^{m_k + n_k} = ab$
+potencia no negativa: $a = p_1^{m_1}\cdot p_2^{m_2}\cdot \ldots\cdot p_k^{m_k}$
+y $b = p_1^{n_1}\cdot p_2^{n_2}\cdot \ldots\cdot p_k^{n_k}$. Entonces $lcm(a, b) =
+p_1^{s_1}\cdot p_2^{s_2}\cdot \ldots\cdot p_k^{s_k}$, donde $s_i = \max(m_i,
+n_i)$ y $\gcd(a, b) = p_1^{t_1}\cdot p_2^{t_2}\cdot \ldots\cdot p_k^{t_k}$ donde
+$t_i = \min(m_i, n_i)$. Ahora, $lcm(a, b) \cdot \gcd(a, b) = p_1^{m_1 +
+n_1}\cdot p_2^{m_2 + n_2}\cdot \ldots\cdot p_k^{m_k + n_k} = ab$.
 
-\Problem{8} Supón que $a$ y $b$ son enteros que dividen al entero $c$. Si $a$
-y $b$ son primos relativos, demuestra que $ab$ divide a $c$. Muestra, por
-ejemplo, que si $a$ y $b$ no son primos relativos, entonces $ab$ no
-necesariamente divide a $c$.
+\Problem{8} Supón que $a$ y $b$ son enteros que dividen al entero $c$. Si $a$ y
+$b$ son primos relativos, demuestra que $ab$ divide a $c$. Muestra, por ejemplo,
+que si $a$ y $b$ no son primos relativos, entonces $ab$ no necesariamente divide
+a $c$.
 
-\TheSolution{}
-Si $a$ y $b$ son primos relativos, entonces los podemos expresar como una
-relación lineal $1 = as + bt$. Ademas, como $a$ y $b$ dividen a $c$, sabemos
-que existen $u, v \in Z$.
+\TheSolution{} Si $a$ y $b$ son primos relativos, entonces los podemos expresar
+como una relación lineal $1 = as + bt$. Ademas, como $a$ y $b$ dividen a $c$,
+sabemos que existen $u, v \in Z$ tales que $c = ua$ y $c = vb$. Procede que $c =
+cas + cbt = vbas + uabt = ab(vs) + ab(ut) = ab(vs + ut)$, es decir, ab divide a
+c.
 
-
+Para el contrajemplo tomamos $a = 6$, $b = 4$ y $c = 12$. $6$ y $4$ no son
+primos relativos y dividen a $12$, sin embargo $6 \cdot 4 = 24$ no divide a
+$12$.
 
 \end{document}
