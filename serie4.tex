@@ -85,6 +85,48 @@ de ciclos disjuntos.
 \item (1342)
 \end{enumerate}
 
+\Problem{3} ¿Cuál es el orden de las siguientes permutaciones?
+
+\begin{enumerate}[a.]
+\item $(124)(357)$
+\item $(124)(3567)$
+\item $(124)(35)$
+\item $(124)(357869)$
+\item $(1235)(24567)$
+\item $(345)(245)$
+\end{enumerate}
+
+\TheSolution{}
+\begin{enumerate}[a.]
+  \item 3
+  \item 12
+  \item 6
+  \item 6
+  \item 12
+  \item 2
+\end{enumerate}
+
+\Problem{4} ¿Cuál es el orden de cada una de las siguiente permutaciones?
+
+\begin{enumerate}[a.]
+  \item 
+    \begin{bmatrix} 
+      1 & 2 & 3 & 4 & 5 & 6 \\
+      2 & 1 & 5 & 4 & 6 & 3
+    \end{bmatrix}
+  \item
+    \begin{bmatrix}
+      1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+      7 & 6 & 1 & 2 & 3 & 4 & 5
+    \end{bmatrix}
+\end{enumerate}
+
+\TheSolution{}
+\begin{enumerate}[a.]
+  \item 6
+  \item 12
+\end{enumerate}
+
 \Problem{5} ¿Cual es el orden del producto de un par de ciclos disjuntos de
 longitud 4 y 6?
 
@@ -94,6 +136,16 @@ longitud 4 y 6?
   \textrm{Orden} &= 12
 \end{align*}
 
+\Problem{6} Demuestra que $A_6$ contiene un elemento de orden 15.
+
+\TheSolution{}
+Ya que el orden es el minimo comun multipl del largo de dos ciclos,
+es suficiente encontrar una permutacion de 2-ciclos de largo 3
+y una permutacion de 2-ciclos de largo 5 ya que $lcm(3, 5) = 15$.
+
+Permutacion de largo 3  $(12) (23) (31)$
+
+Permutacion de largo 5: $(45) (56) (67) (78) (84)$
 
 \Problem{8} ¿Cual es el orden maximo de cualquier elemento en $A_{10}$?
 
@@ -131,6 +183,23 @@ se omitirá esta obvia conclusión y se deja desarrollado en su forma de $k$
 \[(12)(134)(152) = (15)(234)=(15)(23)(24)\]
 \[(1243)(3521) = (12)(14)(13)(35)(32)\]
 
+\Problem{10} Demuestra que una función de un conjunto finito a si mismo es en
+si uno a uno si y solo si es sobre. ¿Esto es verdad cuando S es infinito?
+
+\TheSolution{}
+Si $\phi : S \mapsto S$ es uno a uno. Entonces $S$ y $S'$ = $\{\phi
+(x) | x \in S\}$ tienen el mismo orden si $\nexists$ $a,b \in S$ $\mid a \neq
+b$ y $\phi (a) = \phi (b)$ y si se cumple la condici\'on anterior entonces 
+$|S| = |S'|$ y con ello $\phi$ es sobre.
+
+Si $\phi : S \mapsto S$ es sobre. Entonces $S$ y $S'$ son el mismo
+conjunto y dados los hechos que $|S| = |S'|$ y que $\phi$ es sobre,
+$\phi$ debe ser uno a uno.
+
+No es verdad cuando S es infinito pues funciones que realicen un múltiplo de
+un elemento, i.e $\alpha : \mathbb{Z} \mapsto \mathbb{Z}$ donde $\alpha (a) =
+ka$, podrán ser uno a uno pero no son sobre.
+
 \Problem{12} Si $\alpha$ es par, demuestra que $\alpha^{-1}$ es par. Si
 $\alpha$ es impar, demuestra que $\alpha^{-1}$ es impar.
 
@@ -148,6 +217,36 @@ por cada $i=1,\dots,n$. Despu\'es, se puede notar que $\alpha^{-1}$ tiene el
 mismo n\'umero de 2-ciclos que $\alpha$, entonces si $\alpha$ es par, entonces
 $\alpha^{-1}$ es par tambi\'en, y lo mismo ocurre si $\alpha$ es impar,
 $\alpha^{-1}$ es impar.
+
+\Problem{13} Demuestra que el conjunto de permutaciones pares en $S_n$ forman
+un subgrupo de $S_n$.
+
+\TheSolution{}
+Se quiere probar que $A_{n}$ es un subgrupo de $S_{n}$.
+Para esto es necesario probar:
+
+\begin{enumerate}
+    \item $p, q \in A_{n} \rightarrow pq \in A_{n}$
+    
+    \item $e \in A_{n}$
+    
+    \item $p \in A_{n} \rightarrow p^{-1} \in A_{n}$
+\end{enumerate}
+
+El segundo punto es trivial y el primer y tercer punto se pueden juntar en uno
+solo: $p q^{-1} \in A_{n}$ y es suficiente para demostrarlos.
+
+Entonces digamos que $p = p_{1} p_{2} \ldots  p_{2k}$ y
+$q = q_{1} q_{2} \ldots  q_{2j}$
+
+$q^{-1} = q^{-1}_{2j} q^{-1}_{2j-1} /ldots q^{-1}_{1}$ por el teorema
+calceta-zapato
+
+Ahora, $p q^{-1} = p_{1} p_{2} /ldots p_{2k} q^{-1}_{2j} q^{-1}_{2j-1} /ldots q_{2}
+q_{1}$ lo cual es un producto de un numero par de transposiciones.
+
+$p \in S_{n}, q \in S_{n}, q^{-1} \in S_{n}$ y $S_{n}$ es cerrado asi que se
+cumple lo que se queria probar, $p q^{-1} \in S_{n}$.
 
 \Problem{15} Sea $\alpha$ y $\beta$ en $S_n$. Demuestra que $\alpha\beta$ es
 par si y solo si $\alpha$ y $\beta$ son ambos pares o ambo impares.
@@ -186,10 +285,40 @@ tablita:
 + & +  & -\\
 - & - & + \\
 \end{tabular}
-\caption{Tabla Iluminati}
 \end{center}
 \end{table}
 
+\Problem{17} Sea 
+$\alpha = \begin{bmatrix}
+  1 & 2 & 3 & 4 & 5 & 6 \\
+	2 & 1 & 3 & 5 & 4 & 6
+\end{bmatrix}$ y 
+$\beta = \begin{bmatrix}
+  1 & 2 & 3 & 4 & 5 & 6 \\
+  6 & 1 & 2 & 4 & 3 & 5
+\end{bmatrix}$
+
+Computa lo siguiente.
+\begin{enumerate}[a.]
+  \item $\alpha^{-1}$
+  \item $\beta \alpha$
+  \item $\alpha \beta$
+\end{enumerate}
+
+\TheSolution{}
+\begin{enumerate}[a.]
+  \item $\alpha^{-1} = (12)(54)$
+  \item $\beta\alpha = 
+    \begin{bmatrix}
+      1 & 2 & 3 & 4 & 5 & 6 \\
+			1 & 6 & 2 & 3 & 4 & 5
+    \end{bmatrix}$
+  \item $\alpha\beta = 
+    \begin{bmatrix}
+      1 & 2 & 3 & 4 & 5 & 6 \\
+			6 & 2 & 1 & 5 & 3 & 4
+    \end{bmatrix}$
+\end{enumerate} 
 \Problem{19} Demuestra que si $H$ es un subgrupo de $S_n$, entonces todo
 numero de $H$ es una permutación par o exactamente la mitad de los elementos
 es par.
@@ -222,12 +351,27 @@ Esto demuestra a que hay una función inyectiva y sobreyectiva $f$ par
 $\rightarrow $ impar, entonces $|$par$|=|$impar$|$. Entonces la mitad de las
 permutaciones de $H$ son pares y la otra mitad son impares.
 
+\Problem{20} Computa el orden de cada miembro de $A_4$. ¿Cual es la relación
+aritmetica entre estos ordenes y el orden de $A_4$?
+
+\TheSolution{}
+$|e| = 1$, $|(12)(34)| = 2$, $|(13)(24)| = 2$, $|(14)(23)| = 2$, $|(123)| = 
+3$, $|(132)| = 3$, $|(124)| = 3$, $|(142)| = 3$, $|(134)| = 3$, $|(143)|$,
+$|(234)| = 3$, $|(243)| = 3$
+
+El orden de $A_4$ es 12, y todos los ordenes de sus elementos dividen a 12.
+
 \Problem{22} Sea $\alpha$ y $\beta$ en $S_n$. Demuestra que $\alpha^{-1}\beta
 ^{-1}\alpha\beta$ es una permutación par.
 
 \TheSolution{} Podemos expresar $\alpha$ como un producto de $n$ 2-ciclos, y
 $\beta$ un producto de $m$ 2-ciclos. Así, $\\alpha^{-1}\beta^{-1}alpha\beta$
 es un producto de$m + n + m + n = 2(m + n)$, un numero par.
+
+\Problem{24} ¿Cuantos elementos de orden 5 hay en $S_7$?
+
+\TheSolution{}
+
 
 \Problem{26} Demuestra que (1234) no es un producto de 3-ciclos.
 
