@@ -95,13 +95,29 @@ Para $a$
   |a| = |\langle a \rangle| &= 30 \\
   mcd(30,20)  &= mcd(30,10) \\
               &= 1 0\\
-  |\langle a^{10}\rangle| &= |\langle a^{20}\rangle| \\
-                          &= 30 / 10 = 3 \\
-  \langle a^{10}\rangle = \langle a^{20} \rangle &= \langle a^{mcd(30, 10)} \rangle \\
-                                                 &= \langle a^{mcd(30, 20)}\rangle \\
-                                                 &= \langle a^{10}\rangle \\
-	\langle a^{10} \rangle                         &= \{e, a^{10}, a^{20}\}
+  |\langle a^{10}\rangle|  &= |\langle a^{20}\rangle| \\
+                           &= 30 / 10 = 3 \\
+  \langle a^{10}\rangle
+  = \langle a^{20} \rangle &= \langle a^{mcd(30, 10)} \rangle \\
+                           &= \langle a^{mcd(30, 20)}\rangle \\
+                           &= \langle a^{10}\rangle \\
+	\langle a^{10} \rangle   &= \{e, a^{10}, a^{20}\}
 \end{align*}
+\]
+
+\Problem{4} Enlista los elementos de los subgrupos $\langle 3 \rangle$ y
+$\langle 15 \rangle$ en $Z_{18}$. Sea $a$ un elemento de grupo de orden
+18. Enlista los elementos de los subgrupos $\langle a^3 \rangle$ y
+$\langle a^{15} \rangle$.
+
+\TheSolution{}
+\[
+\begin{align}
+  \langle 3 \rangle  &= \{3,6,9,12,15,0\} \\
+  \langle 15 \rangle &= \{15,12,9,6,3,0\} \\
+  \langle a^3 \rangle &= \{a3,a6,a9,a12,a15,a0\} \\
+  \langle a^{15} \rangle &= \{a15, a12, a9, a6, a3, a0\} 
+\end{align}
 \]
 
 \Problem{5} Enlista los elementos de los subgrupos $\langle3\rangle$ y
@@ -127,6 +143,17 @@ $\langle 7 \rangle$ en $U(20)$
 \end{flalign*}
 \]
 
+\Problem{6} ¿Qué tienen en comun los ejercicios 3, 4 y 5? Intenta realizar una
+generalización que incluya los 3 casos.
+
+\TheSolution{}
+En cualquier grupo, $\langle a \rangle = \langle a^{-1} \rangle$.
+
+\Problem{7} Encuentra un ejemplo de un grupo no ciclico cuyos subgrupos
+propios son ciclicos.
+
+\TheSolution{}
+$U(8)$.
 
 \Problem{8} Sea $a$ un elemento de un grupo y sea $|a| = 15$. Computa el orden
 de los siguientes elementos de $G$.
@@ -159,30 +186,72 @@ $20$ subgrupos y cada potencia de $a$ es un generador.
 orden 8. Sea $G = \langle a \rangle$ y sea $|a| = 24$. Enlista todos los
 generadores del subgrupo de orden 8.
 
+\TheSolution{}
+
 \[
 \begin{align*}
-    Z_{24} &= \{0,1,...,23\} \\
-		\langle 24/8 \rangle = \langle 3 \rangle &= {0, 3, 6, 9, 12, 15, 18, 21} \\
-		|3| &= |<3>| = 8
+    Z_{24} &= \{0,1,\ldots,23\} \\
+		\langle 24/8 \rangle = \langle 3 \rangle &= {0, 3, 6, 9, 12, 15, 18, 21}
+    \\
+		|3| &= |\langle 3 \rangle| = 8
 \end{align*}
 \]
-    Generadores para $Z_{24}$ considerando el producto mod 24: $\{3,9,15,21\}$ \\
-    Obtenidos a partir de la f\'ormula: $|a|=\frac{n}{mdc(n,k)}$ recorriendo los n\'umeros desde 0 a 24 donde 24 es el orden de $Z_{24}$ \\
-    Ahora
-    \begin{align*}
-    	<a> &= \{e, a, a^{2}, ..., a^{23}\}
-    \end{align*}
-    Subgrupo de orden 8
-    \begin{align*}
-    	<a^{\frac{24}{8}}> &= <a^{3}> \\
-        <a^{3}> &= \{e, a^{3}, a^{6}, a^{9}, a^{12}, a^{15}, a^{18}, a^{21}\}
-    \end{align*}
-    Generadores
-    \begin{align*}
-		<a^{3}> &= \{a^{3}, a^{9}, a^{15}, a^{21}\}
-    \end{align*}
-    Obtenidos de la misma forma que el inciso anterior
-\end{problem}
+Generadores para $Z_{24}$ considerando el producto mod 24: $\{3,9,15,21\}$
+obtenidos a partir de la fórmula: $|a|=\frac{n}{mdc(n,k)}$ recorriendo los
+números desde 0 a 24 donde 24 es el orden de $Z_{24}$
+
+Ahora
+
+\[
+\langle a \rangle  = \{e, a, a^{2}, \ldots, a^{23}\}
+\]
+
+Subgrupo de orden 8
+
+\[
+\begin{align*}
+  \langle a^{\frac{24}{8}}\rangle &= \langle a^{3} \rangle \\
+  \langle a^{3} \rangle &= \{e, a^{3}, a^{6}, a^{9}, a^{12}, a^{15}, a^{18}, a^{21}\}
+\end{align*}
+\]
+
+Generadores
+
+\[
+\langle a^{3} \rangle = \{a^{3}, a^{9}, a^{15}, a^{21}\}
+\]
+
+Obtenidos de la misma forma que el inciso anterior
+
+\Problem{11} Sea $G$ un grupo y $a \in G$. Demuestre que $\langle a^{-1}
+\rangle = \langle a \rangle$.
+
+\TheSolution{}
+$a^{-1} \in \langle a \rangle$ por definicion, asi que $\langle a^{-1}
+\subseteq \langle a \rangle$. Por otro lado, $a = {(a^{-1})}^{-1} \in \langle
+a^{-1} \rangle$, por lo que $\langle a \rangle \subseteq \langle a^{-1}
+\rangle$. Con estas dos relaciones ya tenemos que $\langle a \rangle =
+\langle a^{-1} \rangle$.
+
+\Problem{12} En $Z$ encuentra todos los generadores del subgrupo $\langle 3
+\rangle$. Si $a$ tiene orden infinito, encuentra todos los generadores del
+subgrupo $\langle a^3 \rangle$.
+
+\TheSolution{}
+En $Z$, los generadores de $\langle3\rangle$ son $\{3,-3\}$
+
+Si $a$ tiene orden infinito entonces $\langle a^3\rangle$ tiene dos generadores
+$\{a^3, a^{-3}\}$.
+
+\Problem{14} Supón que un grupo ciclico $G$ tiene exactamete tres subgrupos:
+el mismo G, $\{e\}$ y un subgrupo de orden 7. ¿Cual es $|G|$? ¿Qué puedes
+decir si 7 es reemplazado por $p$ donde $p$ es primo?
+
+\TheSolution{}
+Para poder tener exactamente 3 subgrupos, $|G|$ solo puede ser dividido por
+tres números: 1, 7 y $|G|$. Tambien sabemos que $|G| / 7$ tambien es divisor
+de G, y que este numero debe ser 7 para que solo haya 3 subgrupos, por lo que
+$|G| = 7\cdot7 = 49$.
 
 \Problem{15} Sea $G$ un grupo Abeliano y sea $H = \{g \in G | |g| $ divide a $12
 \}$. Demuestra que $H$ es un subgrupo de $G$. ¿Hay algo especial sobre el 12
@@ -194,6 +263,55 @@ Si $|g|$ es dividido por $12$, entonces $g^{12} = e$. Sean $a$ y $b$ en $H$.
 Vemos que ${(ab^-{1})}^{12} = a^{12}{(b^{12})}^{-1} = ee^{-1} = e$, por tanto,
 $H$ es subgrupo de $G$.
 
+\Problem{16} Encuentra una colección de subgrupos distintos $\langle a_{1}
+\rangle ,\langle a_{2}\rangle , \ldots ,\langle a_{n} \rangle$ of $\Z_{240}$
+con la propiedad que $\langle a_{1}\rangle \subset \langle a_{2}\rangle
+\subset \cdots \subset \langle a_{n} \rangle$ con la $n$ mas grande posible.
+
+\TheSolution{}
+\[
+\langle a_{2} \rangle, \langle a_{4} \rangle, \langle a_{8} \rangle, \langle a
+_{16} \rangle \cdots \langle a_{240}\rangle
+\]
+
+\Problem{17} Completa el siguiente enunciado: $|a| = |a^2|$ si y solo si $|a|
+\ldots$
+
+\TheSolution{}
+$\ldots$ es impar o infinito.
+
+Dado que $k = 2$
+
+\[
+  |a^{2}| = \frac{n}{mdc(n,2)} = n
+\]
+	
+Para ello se necesita que $n$ sea impar o infinito.
+
+\Problem{18} Si un grupo ciclico tiene un elemento de orden infinito, ¿cuantos
+elementos de orden finito tiene?
+
+\TheSolution{} Uno, la identidad.
+
+\Problem{19} Enlista los subgrupos ciclicos de $U(30)$.
+
+\TheSolution{}
+\[
+  U(30) = \{1, 7, 11, 13, 17, 19, 23, 29\}
+\]
+
+\[
+\begin{flalign*}
+  &\langle 1 \rangle = \{1,7,19, 13\} \\
+  &\langle 7 \rangle = \{1, 11\} \\
+  & \langle 13 \rangle = \{1, 13, 19, 7\} \\
+  & \langle 17 \rangle = \{1, 17, 19, 23\}  \\
+  & \langle 19 \rangle = \{1, 19\} \\
+  & \langle 23 \rangle = \{1, 23, 19, 17\} \\
+  & \langle 29 \rangle = \{1, 29\} \\
+\end{flalign*}
+\]
+
 \Problem{22} Demuestra que un grupo de orden 3 debe ser ciclico.
 
 \TheSolution{}
@@ -201,9 +319,72 @@ Sea $G = \{e, a, b\}$. $ab$ debe estar en $G$. $ab$ no puede ser $a$ o $b$
 porque implicaria que $a = e$ o $b = e$. Por tanto, $ab = e$ y $b = a^{-1}$,
 dejando el grupo como $\{e, a, a^{-1}\}$, un grupo ciclico.
 
-\Problem{28} Por el teorema 4.3, sabemos que $\langle 1000000\rangle$ es el
+\Problem{24} Para cada elemento $a$ en cualquier grupo $G$, demuestra que
+$\langle a \rangle$ es un subgrupo de $C(a)$.
+
+\TheSolution{}
+Dado que $\langle a \rangle$ se compone de los elementos de la forma $a^{n}$
+entonces $a \cdot a^{n}$ = $a^{1 + n}$ = $a^{n + 1}$ = $a^{n} \cdot a$ por lo
+que $a^{n}$ està en el centrizador de $a$ y como fue elegido al azar $<a>
+\subset C(a)$ y como ambos estàn en G entonces es un subgrupo de $C(a)$.
+
+\Problem{26} Encuentra todos los generadores de $Z$. Sea $a$ un elemento de
+grupo con orden infinito. Encuentra todos los generadores de $\langle a
+\rangle$.
+
+\TheSolution{}
+Los generadores de $Z$ son $\{-1, 1\}$.
+
+Si $a \in G$ y $|a| = \infty$, entonces los generadores de $a$ son $\{a^{-1},
+a^1\}$.
+
+\Problem{29} Enlista los elementos de orden 8 en $Z_{8000000}$. ¿Como sabes
+que tu lista esta completa? Sea $a$ un elemento del grupo tal que $|a| =
+8000000$. Enlista todos los elementos de orden 8 en $\langle a \rangle$.
+
+\TheSolution{} Por el teorema 4.3, sabemos que $\langle 1000000\rangle$ es el
 unico subgrupo de orden 8, asi que sus elementos son los unicos de orden 8:
 1000000, 2000000, 3000000, 4000000, 5000000, 6000000, 7000000.
+
+\Problem{30} Supón que $a$ y $b$ pertenecen a un grupo, $a$ tiene orden impar
+y $aba^-1 = b^{-1}$. Demuestra que $b^2 = e$.
+
+\[
+\begin{split}
+  aba^{-1}  &= b^{-1}  \\
+  ab        &= b^{-1}a  \\
+  baba^{-1} &= e  \\
+  a         &= baba \\ 
+  a^{-1}    &= b^{-2}a^{-2} \\
+  a         &= b^{-2} \\
+  ab        &= b^{-1} \\
+  a         &= e \\
+  b         &=e=b^{2} \\ 
+\end{split}
+\]
+
+\Problem{31} Sea $G$ un grupo finito. Muestra que existe un numero fijo de
+enteros positivos $n$ tales que $a^n = e$ para todo $a$ en $G$.
+
+\TheSolution{}
+$G$ es $\{e, a_{1}, a_{2}, \ldots, a_{k}\}$, entonces $|a_{i}|=n_{i}$. Para
+encontrar la $n$ general calculamos $n = lcm(n_{1}, n_{2}, \ldots, n_{k})$.
+Ahora $a^{n} = a^{kn} = e$, $\forall a \in G$.
+
+\Problem{34} Determine la cuadricula de subgrupos para $Z_8$
+
+\TheSolution{}
+Orden 8:
+$\langle 1 \rangle = {0, 1, 2, 3, 4, 5, 6, 7}$
+
+Orden 4:
+$\langle 2 \rangle = {0, 2, 4, 6}$
+
+Orden 2:
+$\langle 4 \rangle = {0, 4}$
+
+Orden 1:
+$\langle 8 \rangle = {0}$
 
 \Problem{36} Demuestra que un grupo finito es la union de subgrupos propios si
 y solo si el grupo no es ciclico.
@@ -219,6 +400,104 @@ cualquiera de $G$. Como $G$ no es ciclico, $\langle a \rangle$ es un subgrupo
 propio de $G$. Podemos repetir este proceso para todos los elementos $a$ y
 al unir estos subgrupos propios obtenemos todo $G$.
 
+\Problem{37} Demuestra que el grupo de numeros enteros racionales bajo la
+multiplicación no es ciclica.
+
+\TheSolution{}
+Supongamos que existe un generador para el grupo, y ese es de la forma
+$\frac{a}{b}$. Para que este sea generador, debe generar todo el grupo a
+partir de potencias, lo cual sería imposible en el grupo de los racionales
+positivos, ya que una fracción de la forma $\frac{a}{b}^{n}$ va a tender hacia
+infinito o hacia $0$, pero todo con una tendencia muy marcada. Es decir,
+siempre sus potencias van a ser múltiplos de este o de su inverso. 
+
+\Problem{38} Considera el conjunto $\{4, 8, 12, 16\}$. Demuestra que este
+conjunto es un grupo bajo la multiplicación modulo 20 construyendo su tabla
+de Cayley. ¿Cual es el elemento identidad? ¿El grupo es ciclico? Si lo es,
+encuentra los generadores.
+
+\TheSolution{}
+\begin{center}
+    	\begin{tabular}{c|cccc}
+             & 4 & 8 & 12 & 16 \\ 
+           \hline 
+           4 & 16 & 12 & 8 & 4 \\ 
+           8 & 12 & 4 & 16 & 8 \\ 
+           12 & 8 & 16 & 4 & 12 \\ 
+           16 & 4 & 8 & 12 & 16 \\ 
+		 \end{tabular}
+    \end{center}
+La identidad es 16. El grupo es ciclico pues $\langle 8,12 \rangle = \{4,8,12,
+16\}$
+
+\Problem{40} Sean $m$ y $n$ elementos del grupo $Z$. Encuentra los generadores
+del grupo $\langle m \rangle \cap \langle n \rangle$.
+
+\TheSolution{}
+$m,n \in Z$.\\
+	Suponiendo que $\langle m \rangle \cap \langle n \rangle = \langle lcm(m,n) \rangle$
+
+	$\langle m \rangle \cap \langle n \rangle \leq Z \Rightarrow \langle m \rangle \cap \langle n \rangle = \langle k \rangle$ para alguna $k \in Z$\\
+	$\Rightarrow k = m \cdot k_1$, y $k = n \cdot k_2$ para alguna $k_1,k_2 \in Z$\\
+	$\Rightarrow lcm(m,n)$ divide a $k$\\
+	Sea $lcm(m,n) \in \langle m \rangle \cap \langle n \rangle$, y desde que $m,n$ divide a $lcm(m,n)$\\
+	$\rightarrow lcm(m,n) \in \langle k \rangle$\\
+	$\rightarrow lcm(m,n) = k \cdot q$ para alguna $q \in Z$\\
+	$\rightarrow k$ divide a $ lcm(m,n)$\\
+	Entonces $k = lcm(m,n)$ y esto es que $\langle m \rangle \cap \langle n \rangle = \langle lcm(m,n) \rangle$.\\
+
+\Problem{41} Suponga que $a$ y $b$ son elementos de grupo que conmutan y
+tienen ordenes $m$ y $n$. Si $\langle a \rangle \cap \langle b \rangle = {e}$,
+demuestra que el grupo contiene un elemento cuyo orden es al menos el minimo
+comun multiplo de $m$ y $n$. Demuestra que esto no necesita ser verdad si $a$
+y $b$ no conmutan.
+
+\TheSolution{}
+Suppose that a and b are group elements that commute and have
+orders m and n. If $\langle a \rangle \cap \langle b \rangle = {e}$ ,
+prove that the group contains an element whose order is the least common multiple of m and n.
+Show that this need not be true if a and b do not commute.
+
+De la hipotesis, el orden de $ab$ es lcm(m, n).
+
+Si consideramos $|ab| = r$ entonces:
+\[
+\begin{align}
+  {(ab)}^{r} &= a^{r} b^{r} = e \\
+  a^{r}      &= b^{-r} \in \langle b \rangle \\
+  a^{r} \in \langle a \rangle \cap \langle b \rangle &= {e} \\
+  a^{r} &= e \\
+  b^{r} &= e
+\end{align}
+\]
+
+Por estos resultados, $m | r$ y $n | r$ y por lo tanto $lcm(m, n) | r$,
+y en particular, $r \geq lcm(m, n)$
+
+Ahora consideremos $q = lcm(m, n)$. Por lo tanto q se puede descomponer en 
+$m q_{1}$ y $n q_{2}$ para $q_{1}, q_{2}$ positivos.
+
+Revisitando una de las formulas anteriores tenemos:
+
+\[
+\begin{align}
+  {(ab)}^{q} &= a^{q} b^{q} \\
+  a^{q} b^{q} &= a^{m q_{1}} b^{n q_{2}} \\
+  a^{m q_{1}} b^{n q_{2}} &= {(a^{m})}^{q_{1}} {(b^{n})}^{q_{2}} \\
+  {(a^{m})}^{q_{1}} {(b^{n})}^{q_{2}} &= e^{q_{1}} e^{q_{2}} = e
+\end{align}
+\]
+
+Asi que $r = |ab| \leq q = lcm(m, n)$. Por lo tanto $r = lcm(m, n)$.
+
+Ahora veamos el caso en el que a y b no conmutan.
+En este caso, no necesariamente existe r que cumpla lo que se quiere
+y se puede ver con un ejemplo.
+Veamos el caso de $S_{3}$.
+Si $a = (12)$ y $b = (123)$ entonces $|a| = 2$ y $|b| = 3$
+pero porque $S_{3}$ no es abeliano, no es un grupo ciclico y no existe un elemento
+de grado $lcm(2, 3) = 6$.
+
 \Problem{43} Sea $p$ un primo. Si un grupo tiene mas de $p - 1$ elementos de
 orden $p$, ¿Por qué el grupo no puede ser ciclico?
 
@@ -228,6 +507,33 @@ $p$, este tendra $\phi(p) = p - 1$ elementos de orden $p$ por el teorema 4.4.
 Si existiera otro elemento de orden $p$, tendria que existir otro subgrupo de
 orden $p$, lo cual contradice la propiedad de los subgrupos finitos
 establecida en el teorema 4.3.
+
+\Problem{45} Enlista todos los elementos de $Z_{40}$ de orden 10. Sea $|x| = 
+40$. Enlista todos los elementos de $x$ que tienen orden 10.
+
+\TheSolution{}
+\begin{enumerate}
+  \item Los de orden 10 en $Z_{40}$ = $\{4,12,28,36\}$ \\
+    Obtenidos a partir de la f\'ormula $|a| = \frac{n}{mcd(n, k)}$ se
+    seleccionan aquellos n\'umeros en $Z_{40}$ tales que $mcd(40, x) = 4$
+    desde 0 a 39.
+  \item Los de orden 10 en $<x>$ = $\{1,3,7,9\}$ donde $|x| = 10$ \\
+    Similar al anterior pero ahora se seleccionan sólo aquellos $mcd(10, x) =
+    1$ desde 0 a 9
+\end{enumerate}
+
+
+\Problem{47} Determina los ordenes de los elementos de $D_{33}$ y cuantos hay
+de cada uno.
+
+\TheSolution{}
+$D_{33}$ tiene 33 ejes de simetria que forman 33 permutaciones de orden 2.
+Tambien hay 33 rotationes, los cuales forman un grupo ciclico. Sabemos que
+por cada divisor $d$ de 33 tenemos $\phi(d)$ rotaciones de orden $d$ en el
+grupo. Asi obtenemos $\phi(1) = 1$ elemento de orden 1, $\phi(3) = 2$
+elementos de orden 3, $\phi(11) = 10$ elementos de orden 11 y $\phi(33) =
+20$ elementos de orden 33.
+
 
 \Problem{50} Si G es un grupo Abeliano y contiene subgrupos ciclicos de
 ordenes 4 y 6, ¿Qué otros tamaños de subgrupos ciclicos estan contenidos en
@@ -240,6 +546,22 @@ por lo tanto, $|ab| \neq 1, 2$ o $4$. Conversamente, vemos que ${(ab)}^{6} =
 a^{6} \neq e$, asi que $|ab| \neq 1, 2, 3, 6$. Por tanto, debe en existir
 subgrupos de orden $1, 2, 3, 4, 6$ y $12$.
 
+\Problem{54} Sean $a$ y $b$ en un grupo. Si $|a|$ y $|b|$ son primos
+relativos, demuestra que $\langle a \rangle \cap \langle b \rangle = \{e\}$
+
+\TheSolution{}
+Sea $a,b \in G$
+
+Suponiendo que $ \langle a \rangle \cap \langle b \rangle  \leq \langle a
+\rangle$ y  $ \langle a \rangle \cap \langle b \rangle  \leq \langle b
+\rangle$.\\\\
+Si $x \in \langle a \rangle \cap \langle b \rangle$\\ entonces $|x| |a|$ y
+$|x||b|$,\\
+$|x| = \gcd(|a|,|b|)$.\\
+$|x| = 1$ porque $gcd(|a|,|b|) = 1$\\
+$\{x\} = \{e\}$.\\
+$\langle a \rangle \cap \langle b \rangle = \{e\}$
+
 \Problem{57} Supón que un grupo $G$ tiene al menos nueve elmentos $x$ tales
 que $x^8 = e$. ¿Puedes concluir que $G$ no es ciclico? ¿Y si $G$ tiene al
 menos cinco elementos $x$ tales que $x^4 = e$? Generalice.
@@ -249,6 +571,18 @@ habria exactamente $\phi(8) + \phi(4) + \phi(2) + \phi(1) = 4 + 2 + 1 + 1 = 8$
 elementos con ordenes que dividan a $8$ en $G$, asi que $G$ no es ciclico.
 Igual en el otro caso, habria $\phi(4) + \phi(2) + \phi(1) = 2 + 1 + 1 = 4$
 elementos con ordenes que dividan a 4, por lo que $G$ tampoco seria ciclico.
+
+\Problem{61} Supon que $a$ es un elemento de grupo tal que $|a^{28}| = 10$ y
+$|a^{22}| = 20$. Determine $|a|$.
+
+\TheSolution{}
+$|a^{28}| = 10 \Rightarrow a^{280} = e$\\
+$|a^{22}| = 20 \Rightarrow a^{440} = e$\\
+\\
+$|a|$ divide a 280 y $|a|$ divide a 440.\\
+$|a|$ divide a $\gcd(280,440)$.\\
+$|a|$ divide a 40.\\
+$|a| = 40$.\\
 
 \Problem{64} Demuestre que $H = \Bigg\{\begin{bmatrix}
   1 & n \\
@@ -264,13 +598,12 @@ elementos con ordenes que dividan a 4, por lo que $G$ tampoco seria ciclico.
 \end{bmatrix}^{n}$, que pertenece a $GL(2, R)$, por lo que H es un subgrupo de
 este.
 
+\Problem{68} Sean $r_1$ y $r_2$ numeros racionales. Demuestre que el grupo
+$G = \{n_1r_1 + n_2r_2 | n_1, n_2 \in Z \}$ bajo la suma es ciclico.
+Generalice al caso donde tienes $r_1$, $r_2$, $\ldots$, $r_k$ rationals.
+
 \Problem{71} Demuestra que para cualquier primo $p$ y entero positivo $n$,
 $\phi(p^n) = p^n - p^{n - 1}$.
-
-\TheSolution{} Los numeros menores y no relativamente primos a $p^n$ son los
-multiplos de $p$: $p, 2p, \ndots p^{n-1}p$. Hay $p^{n-1}$ de estos numeros, y
-$p^n$ numeros enteros positivos menores o iguales a $p^n$, llevando el numero
-de primos relativos a $p^n$ a $p^n - p^{n-1}$.
 
 
 \end{document}
