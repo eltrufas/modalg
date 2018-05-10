@@ -371,7 +371,25 @@ es un producto de$m + n + m + n = 2(m + n)$, un numero par.
 \Problem{24} ¿Cuantos elementos de orden 5 hay en $S_7$?
 
 \TheSolution{}
-
+Aquellas permutaciones son las del tipo:
+\[
+  (5)(1)(1)	
+\]
+Se eligen 5 de los 7 n\'umeros, lo cual es:
+\[
+  \left(
+    \begin{array}{c}
+      7 \\
+      5
+    \end{array}
+  \right)
+  = 21
+\]
+Considerar las formas diferentes de acomodar dichos n\'umeros eliminando repeticiones es:
+\[
+  \frac{5!}{5} = 24	
+\]
+Por lo tanto el resultado es $21 \times 24 = 504$
 
 \Problem{26} Demuestra que (1234) no es un producto de 3-ciclos.
 
@@ -386,6 +404,20 @@ Pero cada $y_i$ es par ya que $y_i$ tambi\'en se representar como $y_i = (a_
 
 Entonces $y$ es igual al producto de 2-ciclos pares, pero la hip\'otesis dice
 que que $(1234)$ es un producto de 3-ciclos y eso genera una contradicci\'on.
+
+\Problem{27} Sea $\beta \in S_7$ y supon que $\beta^4 = (2143567)$. Encuentre
+$\beta$.
+
+\TheSolution{}
+Sabemos que ${(\beta^4)}^7 = \beta^{28} = e$, por lo tanto, $|\beta|$ divide a
+28. De entrada sabemos que $|\beta| \neq 1$ Si $|\beta| = 14$, entonces la
+representación en ciclos disjuntos de $\beta$ necesitaria al menos un ciclo de
+orden 7 y uno de orden 2, lo cual requeriria 9 simbolos, donde solo tenemos 7
+disponibles. Un argumento similar sirve para descartar que $|\beta| = 28$.
+Por eliminación, tenemos que $|\beta| = 7$, de donde obtenemos que $\beta^8 =
+\beta^4 \beta^4 = \beta = (2457136)$
+
+
 
 
 \Problem{29} Encuentra tres elementos $\sigma$ en $S_9$ con la propiedad de
@@ -411,6 +443,19 @@ que la única manera sería
 \[(a_{n}a_{n-1}a_{n-2}\cdot\cdot\cdot a_{1})\]
 
 y esa sería la inversa.
+
+\Problem{31} Sea $G$ un grupo de permutaciones en el conjunto $X$. Sea $a \in
+X$ y definimos $stab(a) = \{\alpha \in G | \alpha(a) = a\}$. Llamamos a
+$stab(a)$ el estabilizador de a en $G$ (ya que consiste en todos los miembros
+de G que mantienen a $a$ fija). Demuestra que $stab(a)$ es un subgrupo de G.
+
+\TheSolution{}
+Sabemos que $e \in $ $stab(a)$, por lo que $stab(a)$ $\neq \emptyset$. Si
+usamos el teorema 3.1 donde para ver que $H$ es un subconjunto de $G$ entonces
+hay que demostrar que $bc^{-1}$ para cualquier $b,c \in$ $stab(a)$. Sabemos
+que si $e \in$ $stab(a)$ entonces $c^{-1}$ debe estar en $stab(a)$ pues $cc^
+{-1} = e$. Por lo tanto $bc^{-1}(a)$ = $b(a)$ = a, así que $stab(a)$ es un
+subgrupo de $G$.
 
 \Problem{33} Sea $alpha = (1, 3, 5, 7, 9)(2, 4, 6)(8, 10)$. Si $\alpha$ es
 5-ciclo, ¿Qué puedes decir acerca de $m$?
@@ -448,8 +493,8 @@ Al calcular $\beta ^{2} = (a_{1}a_{2}\cdot\cdot\cdot a_{10})\cdot (a_{1}a_{2}
 \cdot\cdot\cdot a_{10})$  notamos que los si empezamos la permutación
 resultado con algún $a_{k}$ tal que $k\in [1,10]$, será de la forma:
 \[
-  (a_{(k)mod10}a_{(k+2)mod10}\cdot\cdot\cdot a_{(k+8)mod10})\cdot (a_{(k+1)
-  \mod10}a_{(k+3)mod10}\cdot\cdot\cdot a_{(k+9)mod10})
+  (a_{(k)\mod10}a_{(k+2)\mod10}\cdot\cdot\cdot a_{(k+8)\mod10})\cdot (a_{(k+1)
+  \mod10}a_{(k+3)\mod10}\cdot\cdot\cdot a_{(k+9)\mod10})
 \]
 
 Es decir, que obtenemos dos 5-ciclos. Esto se debe a que el $2$ divide al
@@ -464,6 +509,24 @@ son $1,4,7$. Entonces, para $n=3$ obtenemos un 10-ciclo. Lo mismo para $7$ y
 $9$. En general, es suficiente que $n$ y 10(o incluso cualquier ciclo) sean
 primos relativos. Lo que implica que tampoco funciona, en este caso, para el 4
 ni el 8.
+
+\Problem{38} En $S_3$, encuentra elementos $\alpha$ y $\beta$ tales que $|
+\alpha| = 2$, $|\beta| = 2$ y $|\alpha\beta| = 3$.
+
+\TheSolution{}
+$\alpha = (13)(2)$, $\beta = (12)(3)$, $\alpha\beta = (123)$.
+
+\Problem{41} Demuestra que $S_n$ es no abeliano para toda $n \geq 3$.
+Contra ejemplo:
+
+Ya que $n \geq 3$, los 2-ciclos $a = (12)$ y $b = (13)$ estan en $S_{n}$.
+
+\[ab = (12)(13) = (132)\]
+\[ba = (13)(12) = (123)\]
+\[(132) \neq (123)\]
+
+Por lo tanto $S_{n}$ con $n \geq 3$ no es abeliano.
+
 
 \Problem{43} Demuestra que $A_5$ tiene 24 elementos de orden 5, 20 elementos
 de orden 3 y 15 elementos de orden 2.
@@ -505,5 +568,13 @@ que la suma se vuelva 0.
 
 \Problem{57} ¿Por qué el hecho de que ordenes de los elementos de $A_4$ sean
 1, 2 y 3 implica que $|Z(A_4)| = 1$?
+
+Tenemos los elementos de $A_4$ y sus respectivos ordenes:
+$|e| = 1$, $|(12)(34)| = 2$, $|(13)(24)| = 2$, $|(14)(23)| = 2$, $|(123)| = 
+3$, $|(132)| = 3$, $|(124)| = 3$, $|(142)| = 3$, $|(134)| = 3$, $|(143)|$,
+$|(234)| = 3$, $|(243)| = 3$
+
+Podemos ver que de aqui el unico elemento que conmuta con los demas es $e$,
+por lo que $|Z(A_4)| = 1$.
 
 \end{document}
