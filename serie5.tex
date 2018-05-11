@@ -62,12 +62,130 @@ grupo de los enteros pares bajo la suma.
 b$. $\phi(m + n) = 2(m + n) = 2m + 2n$, asi que la operacion del grupo se
 conserva.
 
+\Problem{2} Encuentre $Aut(Z)$.
+
+\TheSolution{}
+Sea $\phi(x): x$. Es el caso más trivial. Supongamos que $\phi (x)=\phi (y)$.
+Entonces $x=y$ directamente; con ello probamos que es uno-a-uno. Para encontrar
+$x$ tal que $\phi (x)=y$, esto ocurre cuando $x=y$. Y al ser automorfismo claro
+que se conserva la operación.
+
+$$\phi (x+y)= x+y$$
+$$\phi(x)+\phi(y)=x+y$$
+
+Ya que $\phi :\Z \rightarrow \Z$, definimos con un $+$ la operación del grupo
+en ambos lados sin que exista ambigüedad. 
+
+\Problem{3} Sea $R^+$ el grupo de los reales positivos bajo la multiplicación.
+Demuestre que el mappeo $\phi(x) = \sqrt{x}$ es un automorfismo de $R^+$.
+
+\TheSolution{} $\phi$ es sobre porque está definido para todos los
+reales positivos. Es uno a uno porque $\sqrt{a} = \sqrt{b}$ implica $a = b$.
+Finalmente, $\phi(xy) = \sqrt{xy} = \sqrt{x}\sqrt{y} = \phi(x)\phi(y)$.
+
+\Problem{4} Muestre que $U(8)$ no es isomorfo a $U(10)$.
+
+\TheSolution{}
+Note que $U(10)$ es cíclico, pero $U(8)$ no lo es. Sabemos que un grupo es
+cíclico syss si un grupo isomorfo también es cíclico, por lo tanto, $U(8)$ no
+es isomorfo a $U(10)$.
+
+\Problem{5} Demuestre que $U(8)$ es isomorfo a $U(12)$.
+
+\TheSolution{}
+$\\U(8) = \{1,3,5,7\}$\\
+		$U(12) = \{1,5,7,11\}$\\
+		\\
+    Primero se define la funci\'on $\phi$, y desde que $|U(8)| = |U(12)|$
+    podemos definir $\phi$ como $\phi: U(8) \rightarrow U(12)$, donde:\\
+    $\phi(1) = 1$\\
+		$\phi(3) = 5$\\
+		$\phi(5) = 7$\\
+		$\phi(7) = 11$\\
+		\\
+    Con el paso anterior se puede observar que evidentemente la funci\'on es
+    inyectiva y sobreyectiva.\\ Ahora se probara si se mantiene la
+    multiplicaci\'on donde $\phi(ab) = \phi(a)\phi(b)$ para toda $a$ y $b$ en
+    $U(8)$:\\
+		$\phi(1\cdot n) = \phi(1)\phi(n) = 1\phi(n)$ para toda $n \in U(8)$.\\
+		$\phi(3\cdot 5) = \phi(15) = \phi(7) = 11'= 5'7'= \phi(3)\phi(5)$.\\
+		$\phi(3\cdot 7) = \phi(21) = \phi(5) = 7' = 5'11' = \phi(3)\phi(7)$.\\
+		$\phi(5\cdot 7) = \phi(35) = \phi(3) = 5' = 7'11' = \phi(5)\phi(7)$.\\
+		La multiplicaci\'on se mantiene. Y por lo tanto $U(8) \approx U(12)$
+
+\Problem{6} Demuestra que la noción de un grupo es transitiva. Es decir, si
+$G$, $H$ y $K$ son grupos y $G \approx H$ y $H \approx K$, entonces $G \approx
+K$.
+
+\TheSolution{}
+Tomamos $\alpha$ como un isomorfismo de $G$ a $H$, y $\beta$ un isomorfismo de
+$H$ a $K$. El teorema 0.7 nos asegura que $\beta\alpha$ es uno a uno y sobre.
+Si tomamos $a, b \in G$, $(\beta\alpha)(ab) = \beta(\alpha(ab)) =
+\beta(\alpha(a)\alpha(b)) = \beta(\alpha(a))\beta(\alpha(b)) = (\beta\alpha)
+(a)(\beta\alpha)(b)$.
+
 \Problem{8} Demuestra que el mappeo $a \rightarrow \log_{10}a$ es un
 isomorfismo de $R^+$ bajo la multiplicación a $R$ bajo la suma.
 
 \TheSolution{} La definición del logaritmo asegura que el mappeo es uno a uno
 sobre $R$, y las leyes de los logaritmos dicen que $\log_{10}(ab) = \log_{10}
 a + \log_{10}b$, por lo que la operación se preserva.
+
+\Problem{9} En la notación del teorema 6.1, demuestra que $T_e$ es la identidad
+y que ${(T_g)}^{-1} = T_g^{-1}$.
+
+\TheSolution{}
+El Teorema 6.1 dice que todo grupo es isomorfo a un grupo de permutaciones. En
+esos términos, $T_{e}=ex=x$. Entonces es la identidad. Para conocer la inversa
+basta con $T_{g}T_{h}=T_{gh}$$ $$T_{g}T_{g^{-1}}=T_{gg^{-1}}=e$
+
+\Problem{10} Sea $G$ un grupo. Demuestra que el mappeo $\alpha(g) = g^{-1}$
+para toda $g$ en $G$ es un automorfismo si y solo si $G$ es abeliano.
+
+\TheSolution{}
+Supóngamos que $\alpha$ es un automorfismo. Entonces $\alpha(ab) =
+{(ab)}^{-1}$. Ademas, $\alpha(ab) = \alpha(a) \alpha(b) = a^{-1}b^{-1}$, por lo
+que $a^{-1} b^{-1} = {(ab)}^{-1} = b^{-1}a^{-1}$, por lo que $G$ es abeliano.
+
+Por otro lado, si $G$ es abeliano, tenemos que $\phi(ab) = {(ab)}^{-1} =
+{(ba)}^{-1} = a^{-1}b^{-1} = \phi(a)\phi(b)$.
+
+\Problem{11} Para automorfismos internos $\phi_g$, $\phi_h$ y $\phi_{gh}$,
+demuestra que $\phi_g\phi_h = \phi_{gh}$.
+
+\TheSolution{}
+Para toda $x$ en el grupo, tenemos que $(\phi_g\phi_h)(x) = \phi_g(\phi_h(x)) =
+\phi_g(hxh^{-1}) = ghxh^{-1}g^{-1} = (gh)x{(gh)}^{-1} = \phi_{gh}(x)$
+
+\Problem{13} Demuestra la aserción en el ejemplo 12 que dice que los
+automorfismos internos $\phi _{R_0}$, $\phi_{R_{90}}$, $\phi _{H}$ y 
+$\phi _{D}$ de $D_{4}$ son distintos.
+
+\TheSolution{}
+Para mostrar que las funciones son distintas es suficiente encontrar un
+elemento en el que $\phi _{1} (i) \neq \phi _{2} (i)$ para cada par de
+funciones.
+
+Para $\phi _{R_0}$ con las demas:
+
+$$\phi _{R_0} (R_{90}) \neq \phi _{R_90} (R_{90})$$
+
+$$\phi _{R_0} (R_{90}) \neq \phi _{R_H} (R_{90})$$
+
+$$\phi _{R_0} (R_{90}) \neq \phi _{R_D} (R_{90})$$
+
+Para $\phi _{R_90}$ con las demas:
+
+$$\phi _{R_90} (R_{180}) \neq \phi _{R_H} (R_{180})$$
+
+$$\phi _{R_90} (R_{180}) \neq \phi _{R_D} (R_{180})$$
+
+Para $\phi _{R_H}$ con las demas:
+
+$$\phi _{R_H} (R_{180}) \neq \phi _{R_D} (R_{180})$$
+
+Como encontramos al menos un elemento para cada pareja en el cual no
+resultan lo mismo, las 4 funciones son distintas.
 
 \Problem{15} Si $G$ es un grupo, demuestra que $Aut(G)$ y $Inn(G)$ son grupos
 [bajo la operación de composición de funciones].
@@ -85,6 +203,135 @@ operación del $G$:
 \]
 
 Por lo que $Aut(G)$ es un grupo.
+
+\Problem{16} Demuestra que el mappeo de $U(16)$ a si mismo dado por $x
+\rightarrow x^3$ es un automorfismo. ¿Qué tal $x \rightarrow x^5$ y $x
+\rightarrow x^{7}$? Generalice.
+
+Para probar que es 1-1:
+
+Suponemos $\phi (x) = \phi (y)$, dado el automorfismo sugerido, tenemos que
+$x^{3}=y^{3}$. Por lo tanto: $x=y$. Para probar que es sobre: $\phi (x) = y$.
+Es decir $x^{3}=y$. Esto se vuelve más evidente al saber que hablamos del mismo
+grupo y un elemento del grupo operando sobre él mismo, hace que obtengamos un
+elemento del mismo grupo. Y para la conservación de la operación:
+
+$$\phi (x\cdot y) = \phi (x)\cdot \phi (y)$$
+$$\phi (x\cdot y) = x^{3}\cdot y^{3} = \phi (x)\cdot \phi (y)$$
+
+Es decir, que $\phi$ es un automorfismo. Lo mismo se cumple para las potencias
+impares, incluso cuando trabajamos con enteros negativos.
+
+\Problem{18} ¿A qué grupo familiar es isomorfo el grupo $\left \{
+\begin{bmatrix}
+1 & a \\
+0 & 1
+\end{bmatrix} | a \in Z \right \}$? ¿Qué pasa si $Z$ es reemplazado por $R$?
+
+\TheSolution{}
+El grupo es isomorfo a $(Z, +)$. Si definimos $\phi\left(\begin{bmatrix}
+1 & a \\
+0 & 1
+\end{bmatrix}\right) = a$, por construcción es biyectiva. Ahora, veremos que preserva operación.
+
+\begin{align*}
+\phi\left(\begin{bmatrix}
+1 & a \\
+0 & 1
+\end{bmatrix} \cdot \begin{bmatrix}
+1 & b \\
+0 & 1
+\end{bmatrix}\right) &= \phi\left( \begin{bmatrix}
+1 & b+a \\
+0 & 1
+\end{bmatrix} \right) \\
+&= b + a \\
+&= a + b \\
+&= \phi\left(\begin{bmatrix}
+1 & a \\
+0 & 1
+\end{bmatrix}\right) + \phi\left(\begin{bmatrix}
+1 & b \\
+0 & 1
+\end{bmatrix}\right)
+\end{align*}
+
+Si reemplazamos $Z$ por $R$, el grupo es isomorfo a $(R, +)$.
+
+\Problem{19} Si $\phi$ y $\gamma$ son isomorfismos de un grupo ciclico $\langle
+a \rangle$ a algun grupo y $\phi(a) = \gamma(a)$, demuestre que $\phi =
+\gamma$.
+
+\TheSolution{}
+Sabemos que $\phi, \gamma \in Iso\langle a \rangle$ y que $\phi(a) = \gamma(a)$.
+
+Sea $\phi(a) = \gamma(a) = t$. Tambi\'en, sea $\forall n \in \langle a \rangle
+\Rightarrow n = a^n$, $n\in \mathbb Z$.
+
+$\phi(a^n) = {(\phi(a))}^n = \phi(n) = t^n$
+
+$\gamma(a^n) = {(\gamma(a))}^n = \gamma(n) = t^n$
+
+$\phi(n) = \gamma(n) \ t^n$
+
+$\therefore \phi = \gamma$
+
+\Problem{20} Suponga que $\phi: Z_{50} \rightarrow Z_{50}$ es un automorfmismo
+con $\phi(11) = 13$. Determine una formula para $\phi(x)$.
+
+\TheSolution{}
+Observamos que $\phi(11) = 11\phi(1) = 13$ y como $11^{-1}$ está en el grupo,
+podemos decir que $\phi(1) = 11^{-1}13 = 41 \cdot 13 = 33$. Ahora vemos que
+$\phi(x) = \phi(x\cdot 1) = x \cdot \phi(1) = 33x$.
+
+\Problem{23} Refiriendose al teorema 6.1, demuestre que $T_g$ es en verdad una
+permutación al conjunto $G$.
+
+\TheSolution{}
+Recordemos que una permutación es una función que es uno a uno y que es sobre.
+Para demostrar que $T_{g}$ es uno a uno, supongamos que $T_{g}(x) = T_{g}(y)$
+para $x,y$ que pertenecen al grupo G. Entonces $gx=gy$ y por lo tanto, $x=y$.
+Para demostrar que es sobre, es decir, que existen $x$ e $y$ tales que
+$T_{g}(x)=y$, haremos lo siguiente:
+
+$$gx=y$$
+$$x=g^{-1}y$$
+
+Y como el inverso de $g$ también pertenece a $G$, se cumple que también es
+sobre. Por lo tanto, efectivamente $T_{g}$ es una permutación.
+
+\Problem{24} Prueba o desprueba que $U(20)$ y $U(24)$ son isomorficos.
+
+\TheSolution{}
+$U(20) = \{1,3,7,9,11,13,17,19\}$ y $U(24) = \{1,5,7,11,13,17,19,23\}$. Todo
+elemento no trivial en $U(24)$ tiene orden 2 lo cual no sucede en $U(20)$. Por
+lo tanto no son isomorfos.
+
+\Problem{25} Muestre que la función $\phi (a+bi) = a -bi$ es un automorfismo
+del grupo de los números complejos bajo la adición. Muestre que $\phi$ también
+preserva la multiplicación de números complejos.
+
+\TheSolution{}
+Por construcción, $\phi$ es sobre. Si tenemos que $\phi(a+bi) = \phi(c+di)$,
+entonces tenemos que $a-bi = c-di \rightarrow a-c = 0$ y $di - bi = 0$, por lo
+que $a = c$ y $d = b$, así, es 1 a 1.
+
+Si sumamos dos números complejos con $\phi$ tenemos
+\begin{align*}
+\phi(a+bi) + \phi(c+di) &= (a-bi) + (c-di) \\
+&= (a+c) - (b+d)i \\
+&= \phi((a+c) + (b+d)i) \\
+&= \phi((a+bi)+(c+di))
+\end{align*}
+
+Si ahora multiplicamos dos números complejos tenemos
+\begin{align*}
+\phi(a+bi)\phi(c+di) &= (a-bi)(c-di) \\
+&= ac - adi - bci - bd \\
+&= (ac-bd) - (ad + bc)i \\
+&= \phi((ac-bd) + (ad + bc)i) \\
+&= \phi((a+bi)(c+di))
+\end{align*}
 
 \Problem{29} Sean $C$ los numeros complejos y
 
