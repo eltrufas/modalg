@@ -284,6 +284,14 @@ que divida tanto $a$ como $b$ o $a$ como a $c$. Por el lema de euclides tambien
 sabemos que no existe primo que divida tanto a $a$ como a $bc$, por lo que
 $\gcd(a, bc) = 1$.
 
+\Problem{20} Sean $p_1$, $p_2$, $\ldots$, $p_n$ primos. Demuestra que $p_1 p{2}
+\cdots p_n$ no es divisible por ninguno de estos primos.
+
+\TheSolution{}
+$p_{1} , p_{2} , . . . , p_{n}$ es divisible por cada numero en la lista, pero
+si se suma 1, ciertamente seria divisible por algun primo pero no por los
+primos en la lista. Si 1 fuese primo entonces seria el caso pero no lo es.
+
 \Problem{22} Para cada entero positivo $n$, demuestra que $1 + \cdots + n = n(n
 + 1) / 2$.
 
@@ -308,6 +316,7 @@ Para el paso inductivo, asumimos que $1 + \cdots + n = n(n
 exactamente $n$ elementos tiene exactamente $2^{n}$ subconjuntos (contando el
 conjunto vacío y el conjunto mismo).
 
+\TheSolution{}
 Para esta prueba recurriremos a la inducci\'on matem\'atica. Para el paso base,
 cuando $n=1$, tenemos $2$ subgrupos, lo cual es correcto, ya que corresponden
 al conjunto vacío y al conjunto mismo.
@@ -322,6 +331,46 @@ elementos. Y si multiplicamos por dos ese número, obtendríamos el total de
 subgrupos, ya que son los que ya teníamos, más ahora todos esos subgrupos
 iguales incluyendo al nuevo elemento.
 
+\Problem{24} Para todo entero positivo $n$, demuestre que $2^{n} 3^{2n} - 1$
+siempre es divisible por 17.
+
+\TheSolution{}
+Por inducción. El caso base dice que $2^1 3^2 - 1 = 17$ es divisible entre 17.
+
+Para el paso inductivo queremos probar que $2^{n+1} 3^{2n + 2} - 1$ es
+divisible entre 17 sabiendo que $2^{n} 3^{2n} - 1$ es divisible entre 17,
+digamos $17m = 2^{n} 3^{2n} - 1$ donde $m$ es un numero entero positivo. 
+
+\[
+  \begin{split}
+    2^{n+1}3^{2n + 2} - 1 &= 2^1 3^2 2^n 3^{2n} - 1 \\
+                          &= 18(2^n 3^{2n}) - 1 \\
+                          &= 18(2^n 3^{2n} - 1) - 17 \\
+                          &= 18(17m) - 17
+                          &= 17(18m - 1)
+  \end{split}
+\]
+
+\Problem{26} Demuestra que si $p$ es un primo y $p$ divide a $a_1 a_2 \ldots
+a_n$, entonces $p$ divide a $a_i$ para algun $i$.
+
+\TheSolution{}
+Inducción sobre $n$. En el caso base $p$ divide a $a_1$ por definición.
+
+En el caso inductivo, queremos probar que si $p$ divide a $a_1 a_2 \ldots a_n
+a_{n+1}$ encontes $p$ divide a algun $a_i$, sabiendo que $p$ divide a $q = a_1
+a_2 \ldots a_n$ esto se cumple con el lema de euclides, sabiendo que $a_1 a_2
+\ldots a_n a_{n+1} = q a_{n+1}$ y que p divide a $q$. 
+
+\Problem{27} Utiliza el lema generalizado de Euclides para establecer la parte
+de unicidad del teorema fundamental de la aritmética.
+
+\TheSolution{}
+$n = p_{1} p_{2}... p_{n}$. Si $p_{i}$ divide n, entonces n se reescribe como:
+$\frac{n}{p_{i}} = p_{i} ... p_{i-1} p_{i+1} ... p_{m}$ por lo que se redúce la
+expresion. Si se repite el proceso, se piede ver que se llega siempre a
+$\frac{n}{p_{1} ... p_{m}} = 1$, lo cual muestra la unicidad.
+
 \Problem{29} Demuestra que el primer principio de la inducción matematica es
 una consecuencia del principio del ordenamiento.
 
@@ -333,6 +382,37 @@ mayores que $a$ que no se encuentran en $T$ y supongamos que $T$ no está vacio.
 Sea $b$ el numero mas pequeño en $T$, es decir, que $b - 1 \in S$. Si esto es
 así, entonces $(b - 1) + 1 \in S$, lo cual contradice nuestra asumpcion que $b
 \nin S$.
+
+\Problem{30} Los n\'umeros de Fibonacci son $1,1,2,3,5,8,13,21,34....$En
+general, los n\'umeros Fibonacci se definen por $f_{1}=1,f_{2}=1,$ y para
+$n\geq3, f_{n} = f_{n-1}+f_{n-2}$. Pruebe que el en\'esimo n\'umero de
+Fibonacci $f_{n}$ satisface $f_{n}< 2^{n}$
+
+\TheSolution{}
+Nuevamente utilizaremos inducci\'on matem\'atica para demostrar tal
+proposici\'on. Nuestro caso base es cuando $n=3$, quedando de la siguiente
+manera:$$f_{3}=1+1=2$$ $$2 < 2^{3}$$
+
+Ahora en el paso inductivo, tenemos por hip\'otesis que $f_{n}< 2^{n}$ y vamos
+a demostrar que $f_{n+1} < 2^{n+1}$
+
+$$f_{n}+f_{n-1} < 2\cdot2^{n}$$
+
+$$f_{n}+f_{n-1} < 2^{n} + 2^{n}$$
+
+Quedando evidente que se cumple la proposici\'on mencionada.
+
+\Problem{31} En la canción ``As'' de Songs in the Key of Life, Stevie Wonder
+menciona que la ecuación $8 \times 8 \times 8 \times 8 = 4$. Encuentra todos
+los enteros para los cuales esto se cumple, modulo $n$.
+
+\TheSolution{}
+Se cumple para cualquier divisor de $8^4 - 4 = 4092$.
+
+\Problem{33} Si fuesen las 2:00 A.M., ¿que hora seria en 3736 horas?
+
+\TheSolution{}
+$(2 + 3736) \mod 24 = 18$ horas, o las 6:00 p.m..
 
 \Problem{36} Supón que una un número de identificación de una orden de dinero y
 digito de verificación 21720421168 es copiado erroneamente como 27750421168.
